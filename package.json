@@ -1,0 +1,48 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "A Sass-ready boilerplate.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "javascript",
+    "es6"
+  ],
+  "author": "Carrie Forde",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^7.2.3",
+    "babel-core": "^6.26.0",
+    "bourbon": "^4.3.4",
+    "css-mqpacker": "^6.0.1",
+    "eslint": "^4.14.0",
+    "grunt": "^1.0.1",
+    "grunt-babel": "^7.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-imagemin": "^2.0.1",
+    "grunt-contrib-jasmine": "^1.1.0",
+    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^20.1.0",
+    "grunt-exec": "^3.0.0",
+    "grunt-jsdoc": "^2.2.0",
+    "grunt-kss": "^5.0.1",
+    "grunt-postcss": "^0.9.0",
+    "grunt-sass": "^2.0.0",
+    "grunt-stylelint": "^0.9.0",
+    "grunt-svgmin": "^5.0.0",
+    "grunt-svgstore": "^1.0.0",
+    "grunt-version": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "prettier": "^1.9.2",
+    "sanitize.scss": "^1.0.0",
+    "stylelint": "^8.4.0",
+    "stylelint-config-recommended-scss": "^3.0.0",
+    "stylelint-order": "^0.8.0",
+    "stylelint-scss": "^2.2.0"
+  }
+}

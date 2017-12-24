@@ -1,0 +1,48 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "plugins": [
+    "stylelint-order"
+  ],
+  "rules": {
+    "color-named": "never",
+    "color-no-hex": null,
+    "number-max-precision": 2,
+    "selector-max-attribute": 1,
+    "selector-max-class": 1,
+    "selector-max-combinators": 2,
+    "selector-max-compound-selectors": 3,
+    "selector-max-empty-lines": 0,
+    "selector-max-id": 1,
+    "selector-max-type": 2,
+    "max-nesting-depth": 3,
+    "color-hex-case": "lower",
+    "color-hex-length": "short",
+    "font-family-name-quotes": "always-where-recommended",
+    "font-weight-notation": "numeric",
+    "number-leading-zero": "always",
+    "string-quotes": "single",
+    "unit-case": "lower",
+    "selector-attribute-brackets-space-inside": "never",
+    "selector-attribute-quotes": "always",
+    "indentation": "tab",
+    "order/order": [
+      {
+        "type": "at-rule",
+        "name": "extend"
+      },
+      {
+        "type": "at-rule",
+        "name": "include",
+        "parameter": "[^media]"
+      },
+      "declarations",
+      {
+        "type": "at-rule",
+        "name": "include",
+        "parameter": "media",
+        "hasBlock": true
+      }
+    ],
+    "order/properties-alphabetical-order": true
+  }
+}
