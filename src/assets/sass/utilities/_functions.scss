@@ -1,0 +1,79 @@
+// FUNCTIONS
+
+// em($pxval, $base)
+//
+// Convert a pixel value to ems. Borrowed from Bourbon.
+//
+// Compatibility untested.
+//
+// $pxval - The desired pixel equivalent.
+// $base  - The ancestor font size. Defaults to `root` font size.
+//
+// Styleguide Utilities.Functions.em
+@function em($pxval, $base: $base-font-size) {
+
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+
+	@return ($pxval / $base) * 1em;
+}
+
+
+// rem($pxval)
+//
+// Convert a pixel value to rems. Borrowed from Bourbon.
+//
+// Compatibility untested.
+//
+// $pxval - The desired pixel equivalent.
+//
+// Styleguide Utilities.Functions.rem
+@function rem($pxval) {
+
+	$base: $base-font-size;
+
+	@if not unitless($pxval) {
+		$pxval: strip-units($pxval);
+	}
+
+	@if not unitless($base) {
+		$base: strip-units($base);
+	}
+
+	@return ($pxval / $base) * 1rem;
+}
+
+
+// color($key, $map)
+//
+// Gets a color value from a color Sass map.
+//
+// Compatibility untested.
+//
+// $key - The color key from the Sass map.
+// $map - The color map.
+//
+// Styleguide Utilities.Functions.color
+@function color($key, $map: $colors) {
+	@return map-get($map, $key);
+}
+
+
+// font($key, $map)
+//
+// Gets a font from a font Sass map.
+//
+// Compatibility untested.
+//
+// $key - The font key from the Sass map.
+// $map - The font map.
+//
+// Styleguide Utilities.Functions.type
+@function font($key, $map: $fonts) {
+	@return map-get($map, $key);
+}

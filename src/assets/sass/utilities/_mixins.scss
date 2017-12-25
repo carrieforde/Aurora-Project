@@ -1,0 +1,76 @@
+// MIXINS
+
+// @include colors($map)
+//
+// Set up color classes quickly by looping through a color Sass map.
+//
+// Compatibility untested.
+//
+// $colors - The map of colors to loop through.
+//
+// Styleguide Utilities.Mixins.colors
+@mixin colors($map: $colors) {
+
+	@each $name, $color in $map {
+
+		.bg--#{$name} {
+			background-color: $color;
+		}
+
+		.text--#{$name} {
+			color: $color;
+		}
+
+		.fill--#{$name} {
+			fill: $color;
+		}
+	}
+}
+
+
+// @include fonts($map)
+//
+// Set up font classes quickly by looping through a font Sass map.
+//
+// Compatibility untested.
+//
+// $map - The map of fonts to loop through.
+//
+// Styleguide Utilities.Mixins.fonts
+@mixin fonts($map: $fonts) {
+
+	@each $name, $font-stack in $map {
+		.#{$name} {
+			font-family: $font-stack;
+		}
+	}
+}
+
+
+// @include media($min, $max: null)
+//
+// Pass value(s) to create media queries.
+//
+// Compatibility untested.
+//
+// $min  - The pixel value for min-width.
+// $max  - The pixel value for max-width.
+//
+// Styleguide Utilities.Mixins.media
+@mixin media($min, $max) {
+
+	// Create the media query.
+	@if $min == null {
+		@media only screen and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@media only screen and (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@media only screen and (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	}
+}

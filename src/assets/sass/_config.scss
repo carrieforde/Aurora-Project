@@ -1,0 +1,117 @@
+// CONFIG
+
+// Colors
+//
+// A Sass map of colors that will be used throughout the project.
+//
+// Compatibility untested.
+//
+// $colors - A Sass map with key-value pairs (name: hex).
+//
+// Styleguide Config.Colors.Map
+$colors: (
+	primary: #0038e3,
+	secondary: #458dfe,
+	black: #222,
+	aluminum: #999,
+	iron: #ccc,
+	gainsboro: #ddd,
+	athens-gray: #eee,
+	white-smoke: #f5f5f5,
+	alabaster: #fbfbfb,
+	white: #fff,
+	success: #96c07c,
+	danger: #d5382c
+);
+
+// Main color palette.
+$color__primary: color(primary);
+$color__secondary: color(secondary);
+$color__accent: adjust-hue($color__secondary, 180);
+$color__black: color(black);
+$color__white: color(white);
+$color__shadow: rgba($color__black, 0.15);
+
+// Common colors.
+$color__background: $color__white;
+$color__text: $color__black;
+$color__headings: $color__black;
+
+// Links.
+$color__link: $color__primary;
+$color__link-hover: $color__secondary;
+$color__link-visited: $color__primary;
+
+// Code.
+$color__code: $color__text;
+$color__code-background: color(iron);
+$color__pre: color(aluminum);
+$color__pre-background: $color__white;
+
+// Messages.
+$color__success: color(success);
+$color__danger: color(danger);
+
+
+// Typography
+//
+// A Sass map of fonts to be used throughout the project.
+//
+// Compatibility untested.
+//
+// Styleguide Config.Type.Map
+$fonts: (
+	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif},
+	serif: #{Georgia, times, serif},
+	monospace: #{Consolas, monaco, monospace}
+);
+
+$font__body: font(sans-serif);
+$font__body-weight: 400;
+$font__headings: $font__body;
+$font__code: font(monospace);
+
+// $base-font-size
+//
+// Set the `HTML` font size. Used in `rem()` function.
+//
+// Compatibility untested.
+//
+// Styleguide Config.Type.Font Size
+$base-font-size: 16;
+
+// $base-line-height
+//
+// Set the default line height.
+//
+// Compatibility untested.
+//
+// Styleguide Config.Type.Line Height
+$base-line-height: 1.5;
+
+
+// Breakpoints
+$tablet-portrait-up: 600px;
+$tablet-landscape-up: 900px;
+$desktop-up: 1200px;
+$desktop-xl-up: 1800px;
+
+
+// Sizes
+$size__content: 1100px;
+$gutter: rem(20);
+
+
+// Transitions
+$timing: 0.3s ease-in-out;
+
+$transition__all: all $timing;
+$transition__background-color: background-color $timing;
+$transition__border-color: border-color $timing;
+$transition__box-shadow: box-shadow $timing;
+$transition__color: color $timing;
+$transition__max-height: max-height $timing;
+$transition__opacity: opacity $timing;
+$transition__top: top $timing;
+$transition__transform: transform $timing;
+$transition__z-index: z-index $timing;
