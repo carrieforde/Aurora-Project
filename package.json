@@ -4,7 +4,9 @@
   "description": "A Sass-ready boilerplate.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "kss": "kss --config kss-config.json",
+    "watch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss"
   },
   "keywords": [
     "sass",
@@ -30,13 +32,13 @@
     "grunt-eslint": "^20.1.0",
     "grunt-exec": "^3.0.0",
     "grunt-jsdoc": "^2.2.0",
-    "grunt-kss": "^5.0.1",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
     "grunt-stylelint": "^0.9.0",
     "grunt-svgmin": "^5.0.0",
     "grunt-svgstore": "^1.0.0",
     "grunt-version": "^1.2.1",
+    "kss": "^3.0.0-beta.18",
     "load-grunt-tasks": "^3.5.2",
     "prettier": "^1.9.2",
     "sanitize.scss": "^1.0.0",

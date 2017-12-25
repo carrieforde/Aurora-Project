@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'src/assets/style.css': 'src/assets/sass/main.scss'
+					'src/assets/main.css': 'src/assets/sass/main.scss'
 				}
 			}
 		},
@@ -52,17 +52,6 @@ module.exports = function (grunt) {
 						ext: '.min.css'
 					}
 				]
-			}
-		},
-		kss: {
-			options: {
-				verbose: true,
-				// css: 'true',
-				// js: true
-			},
-			dist: {
-				src: ['src/assets/sass/'],
-				dest: ['docs/styleguide']
 			}
 		},
 		babel: {
