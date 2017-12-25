@@ -105,23 +105,31 @@ module.exports = function (grunt) {
 		watch: {
 			css: {
 				files: ['src/assets/sass/**/*.scss'],
-				tasks: ['styles'],
-				options: {
-					livereload: true
-				}
+				tasks: ['styles']
 			},
 			js: {
 				files: ['src/assets/scripts/**/*.js'],
-				tasks: ['scripts'],
-				options: {
-					livereload: true
-				}
+				tasks: ['scripts']
 			},
 			sprites: {
 				files: ['src/assets/icons/*.svg'],
-				tasks: ['svgmin', 'svgstore'],
+				tasks: ['svgmin', 'svgstore']
+			}
+		},
+		browserSync: {
+			dev: {
+				bsFiles: {
+					src: [
+						'src/assets/sass/**/*.scss',
+						'src/assets/scripts/**/*.js',
+						'src/*.html'
+					]
+				},
 				options: {
-					livereload: true
+					watchTask: true,
+					server: {
+						baseDir: './src'
+					}
 				}
 			}
 		},
@@ -192,19 +200,15 @@ module.exports = function (grunt) {
 	});
 
 	// Configure tasks.
-	grunt.registerTask('default', function () {
+	grunt.registerTask('default', ['browserSync', 'watch']);
 
-		console.log('Please choose from a configured task.');
-
-	});
-
-	grunt.registerTask('styles', ['sasslint', 'sass', 'postcss']);
+	grunt.registerTask('styles', ['stylelint', 'sass', 'postcss']);
 
 	grunt.registerTask('scripts', ['concat', 'eslint', 'babel']);
 
 	grunt.registerTask('icons', ['svgmin', 'svgstore']);
 
-	grunt.registerTask('lint', ['lint5', 'sasslint', 'eslint']);
+	grunt.registerTask('lint', ['stylelint', 'eslint']);
 
 	grunt.registerTask('minify', function (full) {
 
