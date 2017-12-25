@@ -1,14 +1,9 @@
 // CONFIG
 
-// Colors
-//
-// A Sass map of colors that will be used throughout the project.
-//
-// Compatibility untested.
-//
-// $colors - A Sass map with key-value pairs (name: hex).
-//
-// Styleguide Config.Colors.Map
+
+/// A Sass map with color key-value pairs (name: hex).
+///
+/// @type Map
 $colors: (
 	primary: #0038e3,
 	secondary: #458dfe,
@@ -53,13 +48,9 @@ $color__success: color(success);
 $color__danger: color(danger);
 
 
-// Typography
-//
-// A Sass map of fonts to be used throughout the project.
-//
-// Compatibility untested.
-//
-// Styleguide Config.Type.Map
+/// A Sass map with font key-value pairs (name: font-stack).
+
+/// @type Map
 $fonts: (
 	sans-serif: #{-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif},
 	serif: #{Georgia, times, serif},
@@ -71,22 +62,15 @@ $font__body-weight: 400;
 $font__headings: $font__body;
 $font__code: font(monospace);
 
-// $base-font-size
-//
-// Set the `HTML` font size. Used in `rem()` function.
-//
-// Compatibility untested.
-//
-// Styleguide Config.Type.Font Size
+
+/// Set the `HTML` font size. Used in `rem()` function.
+///
+/// @type Number
 $base-font-size: 16;
 
-// $base-line-height
-//
-// Set the default line height.
-//
-// Compatibility untested.
-//
-// Styleguide Config.Type.Line Height
+/// Set the default line height.
+///
+/// @type Number
 $base-line-height: 1.5;
 
 

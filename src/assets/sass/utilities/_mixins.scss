@@ -1,14 +1,9 @@
 // MIXINS
 
-// @include colors($map)
-//
-// Set up color classes quickly by looping through a color Sass map.
-//
-// Compatibility untested.
-//
-// $colors - The map of colors to loop through.
-//
-// Styleguide Utilities.Mixins.colors
+
+/// Set up color classes quickly by looping through a color Sass map.
+///
+/// @param $map {Map} [$colors] - The map of colors to loop through.
 @mixin colors($map: $colors) {
 
 	@each $name, $color in $map {
@@ -28,15 +23,9 @@
 }
 
 
-// @include fonts($map)
-//
-// Set up font classes quickly by looping through a font Sass map.
-//
-// Compatibility untested.
-//
-// $map - The map of fonts to loop through.
-//
-// Styleguide Utilities.Mixins.fonts
+/// Set up font classes quickly by looping through a font Sass map.
+///
+/// @param $map {Map} [$fonts] - The map of fonts to loop through.
 @mixin fonts($map: $fonts) {
 
 	@each $name, $font-stack in $map {
@@ -47,17 +36,11 @@
 }
 
 
-// @include media($min, $max: null)
-//
-// Pass value(s) to create media queries.
-//
-// Compatibility untested.
-//
-// $min  - The pixel value for min-width.
-// $max  - The pixel value for max-width.
-//
-// Styleguide Utilities.Mixins.media
-@mixin media($min, $max) {
+/// Pass value(s) to create media queries.
+///
+/// @param $min {String}        - The pixel value for min-width.
+/// @param $max {String} [null] - The pixel value for max-width.
+@mixin media($min, $max: null) {
 
 	// Create the media query.
 	@if $min == null {

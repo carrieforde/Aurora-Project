@@ -1,15 +1,13 @@
 // FUNCTIONS
 
-// em($pxval, $base)
-//
-// Convert a pixel value to ems. Borrowed from Bourbon.
-//
-// Compatibility untested.
-//
-// $pxval - The desired pixel equivalent.
-// $base  - The ancestor font size. Defaults to `root` font size.
-//
-// Styleguide Utilities.Functions.em
+
+/// Convert a pixel value to ems. Borrowed from Bourbon.
+///
+/// @param  {Number} $pxval                   - The desired pixel equivalent.
+/// @param  {Number} $base  [$base-font-size] - The ancestor font size. Defaults to `root` font size, which _may_ cause issues.
+/// @return {String}                            The em value.
+///
+/// @link https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/functions/_px-to-em.scss
 @function em($pxval, $base: $base-font-size) {
 
 	@if not unitless($pxval) {
@@ -24,15 +22,12 @@
 }
 
 
-// rem($pxval)
-//
-// Convert a pixel value to rems. Borrowed from Bourbon.
-//
-// Compatibility untested.
-//
-// $pxval - The desired pixel equivalent.
-//
-// Styleguide Utilities.Functions.rem
+/// Convert a pixel value to rems. Borrowed from Bourbon.
+///
+/// @param  $pxval {Number} - The desired pixel equivalent.
+/// @return        {String}   The rem value.
+///
+/// @link https://github.com/thoughtbot/bourbon/blob/v4-stable/app/assets/stylesheets/functions/_px-to-em.scss
 @function rem($pxval) {
 
 	$base: $base-font-size;
@@ -49,31 +44,23 @@
 }
 
 
-// color($key, $map)
-//
-// Gets a color value from a color Sass map.
-//
-// Compatibility untested.
-//
-// $key - The color key from the Sass map.
-// $map - The color map.
-//
-// Styleguide Utilities.Functions.color
+/// Gets a color value from a color Sass map.
+///
+/// @param  $key {String}           - The color key from the Sass map.
+/// @param  $map {Map}    [$colors] - The color map.
+///
+/// @return      {String}             The hex value.
 @function color($key, $map: $colors) {
 	@return map-get($map, $key);
 }
 
 
-// font($key, $map)
-//
-// Gets a font from a font Sass map.
-//
-// Compatibility untested.
-//
-// $key - The font key from the Sass map.
-// $map - The font map.
-//
-// Styleguide Utilities.Functions.type
+/// Gets a font from a font Sass map.
+///
+/// @param  $key {String}          - The font key from the Sass map.
+/// @param  $map {Map}    [$fonts] - The font map.
+///
+/// @return      {String}            The font stack.
 @function font($key, $map: $fonts) {
 	@return map-get($map, $key);
 }
