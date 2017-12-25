@@ -35,6 +35,7 @@
     "grunt-jsdoc": "^2.2.0",
     "grunt-postcss": "^0.9.0",
     "grunt-sass": "^2.0.0",
+    "grunt-sassdoc": "^2.0.2",
     "grunt-stylelint": "^0.9.0",
     "grunt-svgmin": "^5.0.0",
     "grunt-svgstore": "^1.0.0",

@@ -40,8 +40,16 @@ module.exports = function (grunt) {
 				syntax: 'scss'
 			},
 			src: [
-				'src/assets/sass/**/.scss'
+				'src/assets/sass/**/*.scss'
 			]
+		},
+		sassdoc: {
+			config: {
+				src: 'src/assets/sass/**/*.scss',
+				options: {
+					dest: 'docs/sassdoc'
+				}
+			}
 		},
 		cssmin: {
 			target: {
