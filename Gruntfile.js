@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'src/assets/main.css': 'src/assets/sass/main.scss'
+					'src/main.css': 'src/assets/sass/main.scss'
 				}
 			}
 		},
@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 				]
 			},
 			dist: {
-				src: '*.css'
+				src: 'src/*.css'
 			}
 		},
 		stylelint: {
