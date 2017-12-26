@@ -295,24 +295,4 @@ textarea,
 [hidden][aria-hidden='false']:focus {
   clip: auto;
 }
-
-html {
-  font-size: 16px;
-}
-
-body {
-  color: #222;
-  font: 400 16px/1.5 -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica, helvetica neue, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-}
-
-a {
-  color: #0038e3;
-  -webkit-transition: color 0.3s ease-in-out;
-  transition: color 0.3s ease-in-out;
-}
-
-img {
-  height: auto;
-  max-width: 100%;
-}
 /*# sourceMappingURL=main.css.map */
