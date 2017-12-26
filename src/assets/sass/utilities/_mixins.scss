@@ -57,3 +57,31 @@
 		}
 	}
 }
+
+
+/// Create buttons with background, color, and border.
+///
+/// @param $bgColor   {Color}  - The desired background color.
+/// @param $textColor {Color}  - The desired text color.
+/// @param $border    {String} - The desired border.
+@mixin button($bgColor, $textColor, $border) {
+	background-color: $bgColor;
+	border: $border;
+	color: $textColor;
+}
+
+
+/// Create button hover, focus, and active states with background, color, and border.
+///
+/// @param $bgColor   {Color}  - The desired background color.
+/// @param $textColor {Color}  - The desired text color.
+/// @param $border    {String} - The desired border.
+@mixin button-hover($bgColor, $textColor, $border) {
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $bgColor;
+		border: $border;
+		color: $textColor;
+	}
+}
