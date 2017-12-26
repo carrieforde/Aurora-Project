@@ -1,17 +1,5 @@
 // MAIN
 
-// Bourbon
-@import 'bourbon';
-
-// Functions & mixins.
-@import 'utilities/functions';
-@import 'utilities/mixins';
-
-// Variables.
-@import 'config';
-
 // Reset
 @import 'sanitize';
 
-// Base
-@import 'base/base';
