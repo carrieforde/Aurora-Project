@@ -2,6 +2,6 @@
   "title": "Boilerplate ♨️",
   "source": "src/assets/sass/",
   "destination": "docs/styleguide/",
-  "css": "src/main.css",
-  "js": "src/app.js"
+  "css": "../../src/main.css",
+  "js": "../../src/app.js"
 }
