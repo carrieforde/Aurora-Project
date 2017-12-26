@@ -11,7 +11,6 @@ module.exports = function (grunt) {
 				outputStyle: 'expanded',
 				sourceMap: true,
 				includePaths: [
-					'node_modules/bourbon/app/assets/stylesheets',
 					'node_modules/sanitize.scss'
 				]
 			},
