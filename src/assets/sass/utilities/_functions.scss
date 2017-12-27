@@ -66,3 +66,32 @@
 
 	@return ($pxval / $base-font-size) * 1rem;
 }
+
+/// Tint a color (add white) by a specified amount.
+///
+/// @param  {Color}  $color  - The color to tint.
+/// @param  {Number} $amount - The amount of white to add.
+/// @return {Color}          - The tinted color.
+@function tint($color, $amount) {
+	@return mix(#fff, $color, $amount);
+}
+
+/// Tone a color (add gray) by a specified amount.
+///
+/// @param  {Color}  $color          - The color to tone.
+/// @param  {Number} $amount         - The amount of gray to add.
+/// @param  {Color}  $gray [#808080] - The gray to mix.
+/// @return {Color}                  - The toned color.
+/// @todo Replace hardcoded gray with global / default specified in `_config.scss`.
+@function tone($color, $amount, $gray: #808080) {
+	@return mix($gray, $color, $amount);
+}
+
+/// Shade a color (add black) by a specified amount.
+///
+/// @param  {Color}  $color  - The color to shade.
+/// @param  {Number} $amount - The amount of black to add.
+/// @return {Color}          - The shaded color.
+@function shade($color, $amount) {
+	@return mix(#000, $color, $amount);
+}
