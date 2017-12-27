@@ -1,5 +1,10 @@
 // MAIN
 
+// Functions
+@import 'utilities/functions';
+
+// Mixins
+@import 'utilities/mixins/utilities';
+
 // Reset
 @import 'sanitize';
-
