@@ -1,0 +1,97 @@
+// BUTTONS
+
+/// Generate button variations quickly and easily.
+///
+/// @param {Color}  $background                                    - The desired background color.
+/// @param {String} $border            [0]                         - The desired border (use shorthand e.g. 1px solid aqua).
+/// @param {Color}  $background-hover  [lighten($background, 10%)] - The hover background color.
+/// @param {String} $border-hover      [$border]                   - The hover border (use shorthand).
+/// @param {Color}  $background-active [$background-hover]         - The active background.
+/// @param {String} $border-active     [$border-hover]             - The active border.
+///
+/// @example - scss Usage
+///  @include button($color__primary, $border__button, $color__accent);
+///
+/// @todo Determine whether color should be passed, or add way to automatically determine color to use (light or dark).
+@mixin button($background, $border: 0, $background-hover: lighten($background, 10%), $border-hover: $border, $background-active: $background-hover, $border-active: $border-hover) {
+	background-color: $background;
+	border: $border;
+	color: $text-default-dark;
+
+	&:focus,
+	&:hover {
+		background-color: $background-hover;
+		border: $border-hover;
+		color: $text-default-dark;
+	}
+
+	&:disabled {
+		background-color: tone($background, 20%);
+	}
+
+	&:active {
+		background-color: $background-active;
+		border: $border-active;
+		color: $text-default-dark;
+	}
+}
+
+/// Generate outline buttons.
+///
+/// @param {String} $border                                  - The outline button's border.
+/// @param {Color}  $color                                   - The button's text color.
+/// @param {String} $border-hover      [$border]             - The hover border.
+/// @param {Color}  $color-hover       [darken($color, 10%)] - The hover text color.
+/// @param {Color}  $background-hover  [transparent]         - The hover background color.
+/// @param {String} $border-active     [$border-hover]       - The active border.
+/// @param {Color}  $color-active      [$color-hover]        - The active text color.
+/// @param {Color}  $background-active [$background-hover]   - The active background color.
+@mixin button-outline($border, $color, $border-hover: $border, $color-hover: darken($color, 10%), $background-hover: transparent, $border-active: $border-hover, $color-active: $color-hover, $background-active: $background-hover) {
+	background-color: transparent;
+	border: $border;
+	color: $color;
+
+	&:focus,
+	&:hover {
+		background-color: $background-hover;
+		border: $border-hover;
+		color: $color-hover;
+	}
+
+	&:disabled {
+		color: tone($color, 20%);
+	}
+
+	&:active {
+		background-color: $background-active;
+		border: $border-active;
+		color: $color-active;
+	}
+}
+
+/// Create buttons of different sizes.
+///
+/// @param {Number}    $font-size                                                      - The button font size.
+/// @param {Number}    $line-height [unitless-calc($base-line-height, $base-font-size)] - The text line height.
+/// @param {Number(s)} $padding                                                         - The space around text.
+///
+/// @todo clean up default value passed to $line-height.
+@mixin button-size($font-size, $line-height: unitless-calc($base-line-height, $base-font-size), $padding: 0.5em 1em) {
+	font-size: $font-size;
+	line-height: $line-height;
+	padding: $padding;
+}
+
+/// Create different styles of button.
+///
+/// @param {String} $string ['rounded'] - The type of button to produce.
+/// @todo Consider adding more button styles see [Unicorn Buttons](http://unicorn-ui.com/buttons/builder/) & [these buttons](https://labs.loupbrun.ca/buttons/) are good inspiration.
+@mixin button-style($string: 'rounded') {
+	@if $string == 'rounded' {
+		border-radius: $base-radius;
+	} @else if $string == 'pill' {
+		border-radius: 50px;
+	} @else {
+		@error "That button type does not exist!";
+	}
+}

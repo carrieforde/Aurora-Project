@@ -5,6 +5,29 @@
 /// @type Number
 $base-font-size: 16 !default;
 
+/// Set the base line height for the project. This value should represent the pixel equivalent.
+///
+/// @type Number
+$base-line-height: 24 !default;
+
+/// Set a base border radius that will be used for various UI elements within the project.
+///
+/// @type Number
+$base-radius: 4px;
+
+
+/// Default dark text color.
+///
+/// @type Color
+/// @todo Rename & update where used
+$text-default-dark: #000;
+
+/// Default light text color.
+///
+/// @type Color
+/// @todo Rename & update where used
+$text-default-light: #fff;
+
 
 // Breakpoints
 $tablet-portrait: 600px;
