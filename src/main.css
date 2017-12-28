@@ -1,3 +1,68 @@
+.hamburger {
+  background-color: transparent;
+  height: 11px;
+  padding: 0;
+  width: 15px;
+  position: relative;
+}
+
+.hamburger .bars {
+  text-indent: -9999em;
+}
+
+.hamburger .bars, .hamburger .bars:after, .hamburger .bars:before {
+  background-color: rebeccapurple;
+  height: 2px;
+  left: 0;
+  margin: 5px auto;
+  position: absolute;
+  right: 0;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  width: 15px;
+}
+
+.hamburger .bars:after, .hamburger .bars:before {
+  content: '';
+}
+
+.hamburger .bars {
+  top: 0;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.hamburger .bars:before {
+  bottom: 0;
+  margin-top: 0;
+}
+
+.hamburger .bars:after {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  margin-bottom: 0;
+}
+
+.hamburger.is-active .bars {
+  background-color: rgba(255, 105, 180, 0);
+}
+
+.hamburger.is-active .bars:before {
+  margin-bottom: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.hamburger.is-active .bars:after {
+  margin-top: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
 /*! sanitize.css v4.1.0 | CC0 License | github.com/jonathantneal/sanitize.css */
 article,
 aside,
