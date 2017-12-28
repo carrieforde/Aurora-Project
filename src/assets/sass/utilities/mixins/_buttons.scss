@@ -100,71 +100,119 @@
 }
 
 
-/// @todo if burger has a hover color, update transition (use transition mixin)
-@mixin hamburger($bar-color, $bar-width, $bar-height, $spacing: $bar-height * 2.5, $bar-selector: '.bars', $background-color: transparent) {
-	background-color: $background-color;
-	height: $bar-height * 3 + $spacing;
+
+/// Create a hamburger menu button. JavaScript interaction needs to be hooked up separately.
+///
+/// @param {Color} $bar-color - The color of the hamburger bars.
+/// @param {Color} $bar-hover - The color of the bars when the button is hovered.
+/// @param {Number} $bar-height - The height of the bars.
+/// @param {Number} $bar-width - The width of the bars.
+/// @param {String} $bar-selector ['.bars'] - The selector used within the button to create the bars.
+///
+/// @example - markup Sample Markup
+///  <button type="button" class="hamburger">
+///    Menu
+///    <span class="bars"></span>
+///  </button>
+///
+/// @example - scss Sample Usage
+///  .hamburger {
+///    @include hamburger-button($color__primary);
+///  }
+@mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 10px, $bar-width: 65px, $bar-selector: '.bars') {
+	background-color: transparent;
+	height: $bar-height * 5;
 	padding: 0;
+	position: relative;
+	text-indent: -9999em;
 	width: $bar-width;
 
 	#{$bar-selector} {
-		text-indent: -9999em;
 
 		&,
 		&:after,
 		&:before {
 			background-color: $bar-color;
+			display: block;
 			height: $bar-height;
-			left: 0;
-			margin: $spacing auto;
-			position: absolute;
-			right: 0;
-			transition: transform 0.3s ease-in-out;
+			transform-origin: 0;
+			transition: all 0.3s ease-in-out;
 			width: $bar-width;
 		}
 
 		&:after,
 		&:before {
 			content: '';
+			position: absolute;
 		}
-
-		// Middle bar.
-		& { // stylelint-disable-line no-duplicate-selectors
-			top: 0;
-			transition: opacity 0.3s ease-in-out;
-		}
-
+		
 		// Top bar.
 		&:before {
-			bottom: 0;
-			margin-top: 0;
+			top: $bar-height * -2;
 		}
-
+		
+		// Middle bar.
+		& { // stylelint-disable-line no-duplicate-selectors
+			top: 50%;
+			transform: translateY(-50%);
+			
+			.active & {
+				display: none;
+			}
+		}
+		
 		// Bottom bar.
 		&:after {
-			@include vertical-center;
+			bottom: $bar-height * -2;
+		}
+	}
 
-			margin-bottom: 0;
+	&:hover {
+
+		#{$bar-selector} {
+			
+			&,
+			&:after,
+			&:before {
+				background-color: $bar-hover;
+			}
 		}
 	}
 }
 
-@mixin hamburger-active($bar-selector: '.bars') {
+/// Transforms the hamburger button into an X.
+///
+/// @param {Color} $bar-color - The active color of bars.
+/// @param {Number} $bar-height - The height of the bars.
+/// @param {String} $bar-selector ['.bars'] - The selector used within the button to create the bars.
+///
+/// @example - scss Sample Usage
+///  .hamburger {
+///     @include hamburger-button($color__primary);
+///
+///     &.is-active {
+///       @include hamburger-button-active($color__accent);
+///     }
+///  }
+@mixin hamburger-button-active($bar-color, $bar-height: 10px, $bar-selector: '.bars') {
 
 	#{$bar-selector} {
 
-		// Middle bar.
 		& { // stylelint-disable-line no-duplicate-selectors
-			background-color: rgba(hotpink, 0);
+			background-color: rgba($bar-color, 0);
+		}
+
+		&:after,
+		&:before {
+			background-color: $bar-color;
 		}
 
 		&:before {
-			margin-bottom: 0;
+			top: $bar-height * -2 - $bar-height / 2;
 			transform: rotate(45deg);
 		}
 
 		&:after {
-			margin-top: 0;
 			transform: rotate(-45deg);
 		}
 	}
@@ -174,17 +222,17 @@
 //
 // Markup:
 // <button type="button" class="hamburger {{modifier_class}}">
-//   <span class="bars">Menu</span>
+//   Menu
+//   <span class="bars"></span>
 //  </button>
 //
 // .is-active - The active burger.
 // 
 // Styleguide Atoms.Burgers
 .hamburger {
-	@include hamburger(rebeccapurple, 15px, 2px);
-	position: relative;
+	@include hamburger-button(rebeccapurple, hotpink);
 
 	&.is-active {
-		@include hamburger-active;
+		@include hamburger-button-active(lime);
 	}
 }
