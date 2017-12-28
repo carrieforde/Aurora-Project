@@ -9,7 +9,7 @@
 /// @param {Color}  $background-active [$background-hover]         - The active background.
 /// @param {String} $border-active     [$border-hover]             - The active border.
 ///
-/// @example - scss Usage
+/// @example - scss Sample Usage
 ///  @include button($color__primary, $border__button, $color__accent);
 ///
 /// @todo Determine whether color should be passed, or add way to automatically determine color to use (light or dark).
@@ -46,6 +46,9 @@
 /// @param {String} $border-active     [$border-hover]       - The active border.
 /// @param {Color}  $color-active      [$color-hover]        - The active text color.
 /// @param {Color}  $background-active [$background-hover]   - The active background color.
+///
+/// @example - scss Sample Usage
+///  @include button-outline($base-border, $color__primary, $background-hover: $color__accent);
 @mixin button-outline($border, $color, $border-hover: $border, $color-hover: darken($color, 10%), $background-hover: transparent, $border-active: $border-hover, $color-active: $color-hover, $background-active: $background-hover) {
 	background-color: transparent;
 	border: $border;
@@ -93,5 +96,95 @@
 		border-radius: 50px;
 	} @else {
 		@error "That button type does not exist!";
+	}
+}
+
+
+/// @todo if burger has a hover color, update transition (use transition mixin)
+@mixin hamburger($bar-color, $bar-width, $bar-height, $spacing: $bar-height * 2.5, $bar-selector: '.bars', $background-color: transparent) {
+	background-color: $background-color;
+	height: $bar-height * 3 + $spacing;
+	padding: 0;
+	width: $bar-width;
+
+	#{$bar-selector} {
+		text-indent: -9999em;
+
+		&,
+		&:after,
+		&:before {
+			background-color: $bar-color;
+			height: $bar-height;
+			left: 0;
+			margin: $spacing auto;
+			position: absolute;
+			right: 0;
+			transition: transform 0.3s ease-in-out;
+			width: $bar-width;
+		}
+
+		&:after,
+		&:before {
+			content: '';
+		}
+
+		// Middle bar.
+		& { // stylelint-disable-line no-duplicate-selectors
+			top: 0;
+			transition: opacity 0.3s ease-in-out;
+		}
+
+		// Top bar.
+		&:before {
+			bottom: 0;
+			margin-top: 0;
+		}
+
+		// Bottom bar.
+		&:after {
+			@include vertical-center;
+
+			margin-bottom: 0;
+		}
+	}
+}
+
+@mixin hamburger-active($bar-selector: '.bars') {
+
+	#{$bar-selector} {
+
+		// Middle bar.
+		& { // stylelint-disable-line no-duplicate-selectors
+			background-color: rgba(hotpink, 0);
+		}
+
+		&:before {
+			margin-bottom: 0;
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			margin-top: 0;
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+// Button
+//
+// Markup:
+// <button type="button" class="hamburger {{modifier_class}}">
+//   <span class="bars">Menu</span>
+//  </button>
+//
+// .is-active - The active burger.
+// 
+// Styleguide Atoms.Burgers
+.hamburger {
+	@include hamburger(rebeccapurple, 15px, 2px);
+	position: relative;
+
+	&.is-active {
+		@include hamburger-active;
 	}
 }

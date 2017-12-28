@@ -7,11 +7,11 @@
 @import 'utilities/functions';
 
 // Mixins
+@import 'utilities/mixins/layout';
 @import 'utilities/mixins/utilities';
 @import 'utilities/mixins/media-queries';
 @import 'utilities/mixins/buttons';
 @import 'utilities/mixins/links';
-@import 'utilities/mixins/layout';
 
 // Reset
 @import 'sanitize';
