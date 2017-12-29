@@ -119,7 +119,7 @@
 ///  .hamburger {
 ///    @include hamburger-button($color__primary);
 ///  }
-@mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 10px, $bar-width: 65px, $bar-selector: '.bars') {
+@mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 3px, $bar-width: 20px, $bar-selector: '.bars') {
 	background-color: transparent;
 	max-width: $bar-width;
 	padding: $bar-height * 5 / 2 $bar-width / 2;
@@ -192,7 +192,7 @@
 ///       @include hamburger-button-active($color__accent);
 ///     }
 ///  }
-@mixin hamburger-button-active($bar-color, $bar-height: 10px, $bar-selector: '.bars') {
+@mixin hamburger-button-active($bar-color, $bar-height: 3px, $bar-selector: '.bars') {
 
 	#{$bar-selector} {
 
@@ -208,12 +208,149 @@
 		}
 
 		&:before {
-			// top: $bar-height * -3;
 			transform: rotate(45deg);
 		}
 
 		&:after {
 			transform: rotate(-45deg);
 		}
+	}
+}
+
+/// Create a close button.
+///
+/// @param {Color}  $x-color                               - The desired X color.
+/// @param {Number} $x-size            [1rem]              - The font-size of the X.
+/// @param {Color}  $background        [transparent]       - The desired background color.
+/// @param {Color}  $hover-x-color     [$x-color]          - The hover X color.
+/// @param {Color}  $background-hover  [$background]       - The hover background color.
+/// @param {Color}  $active-x-color    [$hover-x-color]    - The active X color.
+/// @param {Color}  $active-background [$hover-background] - The active background.
+///
+/// @example - markup Sample Markup
+///  <button type="button" class="close">
+///    <span class="screen-reader-text>Close</span> <!-- assumes a .screen-reader-text class using @include screen-reader exists. -->
+///  </button>
+///
+/// @example - scss Sample Usage
+///  .close { @include close-button($color__primary, transparent); }
+@mixin close-button($x-color, $x-size: 1rem, $background: transparent, $hover-x-color: $x-color, $hover-background: $background, $active-x-color: $hover-x-color, $active-background: $hover-background) {
+	background-color: $background;
+	transition: background-color 0.3s ease-in-out;
+
+	&:after {
+		color: $x-color;
+		content: '\00D7';
+		transition: color 0.3s ease-in-out;
+	}
+
+	&:focus,
+	&:hover {
+		background-color: $hover-background;
+
+		&:after {
+			color: $hover-x-color;
+		}
+	}
+
+	&:active {
+		background-color: $active-background;
+
+		&:after {
+			color: $active-x-color;
+		}
+	}
+}
+
+/// Creates a Plus-Minus button. Requires JavaScript be implemented separately.
+///
+/// @param {Color}   $bar-color                    - The color of the plus-minus bars.
+/// @param {Number}  $bar-height                   - The height of the bars.
+/// @param {Number}  $bar-width                    - The width of the bars.
+/// @param {Color}   $background     [transparent] - The button background.
+/// @param {Boolean} $include-active [false]       - Determines whether to include styling for the active state. Allows different classes or modifiers to be used.
+/// @param {String} $active-selector [null]        - The name of the selector to trigger the active state. Can include `&`.
+///
+/// @example - markup Sample Markup
+///  <button type="button" class="plus-minus">
+///    <span class="screen-reader-text>Expand</span> <!-- assumes a .screen-reader-text class using @include screen-reader exists. -->
+///  </button>
+///
+/// @example - scss Sample Usage
+///  .plus-minus { @include plus-minus-button($color__primary); }
+@mixin plus-minus-button($bar-color, $bar-height: 3px, $bar-width: 20px, $background: transparent, $hover-bar-color: $bar-color, $hover-background: $background, $active-bar-color: $hover-bar-color, $active-background: $hover-background, $include-active: false, $active-selector: null) {
+
+	background-color: $background;
+	padding: $bar-width / 2;
+	position: relative;
+
+	&:after,
+	&:before {
+		background-color: $bar-color;
+		bottom: 0;
+		content: '';
+		display: block;
+		height: $bar-height;
+		left: 0;
+		margin: auto;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transition: all 0.3s ease-in-out;
+		width: $bar-width;
+	}
+
+	&:after {
+		transform: rotate(90deg);
+	}
+
+	&:focus,
+	&:hover {
+		background-color: $hover-background;
+
+		&:after,
+		&:before {
+			color: $hover-bar-color;
+		}
+	}
+
+	&:active {
+		background-color: $active-background;
+
+		&:after,
+		&:before {
+			color: $active-bar-color;
+		}
+	}
+
+	@if $include-active {
+		
+		@if $active-selector == null {
+			@error '`$include-active` requires `$active-selector` to be specified.';
+		} @else {
+			#{$active-selector} {
+				@include plus-minus-button-active($active-bar-color, $active-background);
+			}
+		}
+	}
+}
+
+/// Styles the active (minus) state of the Plus-Minus button.
+///
+/// @param {Color} $active-bar-color                - The color of the minus.
+/// @param {Color} $active-background [transparent] - The button background color.
+///
+/// @example - scss Sample Usage
+///  .plus-minus { @include plus-minus-button-active($color__primary); }
+@mixin plus-minus-button-active($active-bar-color, $active-background: transparent) {
+	background-color: $active-background;
+
+	&:after,
+	&:before {
+		background-color: $active-bar-color;
+	}
+
+	&:after {
+		transform: rotate(180deg);
 	}
 }
