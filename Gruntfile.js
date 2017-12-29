@@ -67,7 +67,7 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				files: {
-					'src/assets/scripts/app.js': 'src/assets/scripts/app.js'
+					'src/assets/app.js': 'src/assets/app.js'
 				}
 			}
 		},
@@ -79,14 +79,14 @@ module.exports = function (grunt) {
 				sourceMap: true
 			},
 			dist: {
-				src: ['src/assets/scripts/src/*.js'],
-				dest: 'src/assets/app.js'
+				src: ['src/assets/scripts/*.js'],
+				dest: 'src/app.js'
 			}
 		},
 		uglify: {
 			dist: {
 				files: {
-					'dist/app.min.js': 'assets/app.js'
+					'dist/app.min.js': 'src/app.js'
 				}
 			}
 		},
@@ -94,7 +94,7 @@ module.exports = function (grunt) {
 			options: {
 				configFile: '.eslintrc.js'
 			},
-			target: ['assets/scripts/**/*.js']
+			target: ['assets/scripts/*.js']
 		},
 		imagemin: {
 			dynamic: {
@@ -115,7 +115,7 @@ module.exports = function (grunt) {
 				tasks: ['styles', 'sassdoc']
 			},
 			js: {
-				files: ['src/assets/scripts/**/*.js'],
+				files: ['src/assets/scripts/*.js'],
 				tasks: ['scripts']
 			},
 			sprites: {
