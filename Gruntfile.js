@@ -94,7 +94,15 @@ module.exports = function (grunt) {
 			options: {
 				configFile: '.eslintrc.js'
 			},
-			target: ['assets/scripts/*.js']
+			target: ['src/assets/scripts/*.js']
+		},
+		jsdoc: {
+			dist: {
+				src: ['src/assets/scripts/*.js'],
+				options: {
+					destination: 'docs/jsdoc'
+				}
+			}
 		},
 		imagemin: {
 			dynamic: {
