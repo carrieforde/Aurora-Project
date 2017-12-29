@@ -121,11 +121,10 @@
 ///  }
 @mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 10px, $bar-width: 65px, $bar-selector: '.bars') {
 	background-color: transparent;
-	height: $bar-height * 5;
-	padding: 0;
+	max-width: $bar-width;
+	padding: $bar-height * 5 / 2 $bar-width / 2;
 	position: relative;
 	text-indent: -9999em;
-	width: $bar-width;
 
 	#{$bar-selector} {
 
@@ -135,7 +134,11 @@
 			background-color: $bar-color;
 			display: block;
 			height: $bar-height;
-			transform-origin: 0;
+			left: 0;
+			margin: 0 auto;
+			position: absolute;
+			right: 0;
+			// transform-origin: 0;
 			transition: all 0.3s ease-in-out;
 			width: $bar-width;
 		}
@@ -143,7 +146,6 @@
 		&:after,
 		&:before {
 			content: '';
-			position: absolute;
 		}
 		
 		// Top bar.
@@ -155,10 +157,6 @@
 		& { // stylelint-disable-line no-duplicate-selectors
 			top: 50%;
 			transform: translateY(-50%);
-			
-			.active & {
-				display: none;
-			}
 		}
 		
 		// Bottom bar.
@@ -205,34 +203,17 @@
 		&:after,
 		&:before {
 			background-color: $bar-color;
+			top: calc(50% - #{$bar-height} / 2);
+			transform: translateY(-50%);
 		}
 
 		&:before {
-			top: $bar-height * -2 - $bar-height / 2;
+			// top: $bar-height * -3;
 			transform: rotate(45deg);
 		}
 
 		&:after {
 			transform: rotate(-45deg);
 		}
-	}
-}
-
-// Button
-//
-// Markup:
-// <button type="button" class="hamburger {{modifier_class}}">
-//   Menu
-//   <span class="bars"></span>
-//  </button>
-//
-// .is-active - The active burger.
-// 
-// Styleguide Atoms.Burgers
-.hamburger {
-	@include hamburger-button(rebeccapurple, hotpink);
-
-	&.is-active {
-		@include hamburger-button-active(lime);
 	}
 }
