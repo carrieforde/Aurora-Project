@@ -120,7 +120,7 @@ module.exports = function (grunt) {
 		watch: {
 			css: {
 				files: ['src/assets/sass/**/*.scss'],
-				tasks: ['styles', 'sassdoc']
+				tasks: ['styles']
 			},
 			js: {
 				files: ['src/assets/scripts/*.js'],
@@ -135,16 +135,17 @@ module.exports = function (grunt) {
 			dev: {
 				bsFiles: {
 					src: [
-						'src/assets/sass/**/*.scss',
-						'src/assets/scripts/**/*.js',
-						'src/*.html'
+						'src/**/*.css',
+						'src/**/*.js',
+						'src/**/*.html'
 					]
 				},
 				options: {
 					watchTask: true,
 					server: {
 						baseDir: './src'
-					}
+					},
+					injectChanges: true
 				}
 			}
 		},
