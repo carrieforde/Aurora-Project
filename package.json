@@ -27,7 +27,7 @@
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-imagemin": "^2.0.1",
     "grunt-contrib-jasmine": "^1.1.0",
-    "grunt-contrib-uglify": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^20.1.0",
     "grunt-exec": "^3.0.0",
