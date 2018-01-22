@@ -133,3 +133,23 @@ Looks through Sass files and compiles a KSS styleguide based on Sass comments.
 
 ####  `npm run watch`
 Similar to `grunt watch`. Watches for changes to `.scss` files and runs `npm run kss` automatically.
+
+
+## Linting
+Boilerplate ♨️ includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
+
+### Stylelint
+
+#### Customizing Rules
+https://stylelint.io/user-guide/configuration/#configuration
+
+#### Disabling Rules
+https://stylelint.io/user-guide/configuration/#turning-rules-off-from-within-your-css
+
+### ESLint
+
+#### Customizing Rules
+https://eslint.org/docs/user-guide/configuring
+
+#### Disabling Rules
+https://eslint.org/docs/user-guide/configuring
