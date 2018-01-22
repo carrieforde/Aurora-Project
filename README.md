@@ -1,10 +1,50 @@
 # Boilerplate ♨️
-A design-system focused boilerplate that's Sass-ready and focused on Vanilla JavaScript. Heavily influenced by [Scalable and Modular Architecture for CSS (SMACSS)](https://smacss.com/) and [Atomic Design](http://atomicdesign.bradfrost.com/).
+Boilerplate ♨️ is a clean, modern, design-system focused project boilerplate that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
+
+
+## Features
+This project features a several goodies that will help improve your development workflow, so you can spend time on what you do best--developing websites--instead of configuring tools.
+
+- Sass
+  * Sensible configuration
+  * SMACSS-based architecture
+  * Linting with [Stylelint](https://stylelint.io/)
+  * Compilation
+  * Minification
+- JavaScript
+  * Focused on Vanilla JS, but ready for anything
+  * Supports ES6 with Babel
+  * Linting with [ESLint](https://eslint.org/)
+  * Concatenation
+  * Uglification / minification
+- Icon (SVG) concatenation & minification
+- Image minification
+- [BrowserSync](https://www.browsersync.io/)
+- Testing with Jasmine / Mocha **(Coming Soon)**
+- Versioning
+- Deployment to Github
+- [KSS Node](https://github.com/kss-node/kss-node) for easy styleguide creation
+- Lightweight CSS Normalization with [Sanitize.css](https://github.com/jonathantneal/sanitize.css)
 
 
 ## Requirements
 - [Node](http://node.js/) / [NPM](https://www.npmjs.com/)
 - [Grunt CLI](http://gruntjs.com/) - `npm install -g grunt-cli`
+
+### Recommended
+- [BrowserSync](https://browsersync.io/)
+- [ES Lint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [Sassdoc](http://sassdoc.com/)
+- [Stylelint](https://stylelint.io/)
+
+To globally install all the required & recommended packages in one go, use this command:
+
+```sh
+npm install -g browser-sync eslint grunt grunt-cli prettier sassdoc stylelint
+```
+
+*Note: you will still need to install packages locally to the project per the Getting Started instructions below*
 
 
 ## Getting Started
@@ -21,33 +61,33 @@ npm install
 ```
 
 
-## Features
-This project features a several goodies that will help improve your development workflow, so you can spend time on what you do best--developing websites--instead of configuring tools.
-
-- Sass
-  * Sensible configuration
-  * SMACSS-based architecture
-  * Includes [Bourbon](http://bourbon.io/) for handy mixins
-  * Linting with [Stylelint](https://stylelint.io/)
-  * Compilation
-  * Minification
-- JavaScript
-  * Focused on Vanilla JS, but ready for anything
-  * Supports ES6 with Babel
-  * Linting with [ESLint](https://eslint.org/)
-  * Concatenation
-  * Uglification / minification
-- Icon (SVG) concatenation & minification
-- Image minification
-- [BrowserSync](https://www.browsersync.io/)
-- Testing with Jasmine
-- Versioning
-- Deployment to Github
-- [KSS Node](https://github.com/kss-node/kss-node) for easy styleguide creation
-- Lightweight resets with [Sanitize.css](https://github.com/jonathantneal/sanitize.css)
-
-
 ## Project Structure
+```
+boilerplate/
+├── docs
+│   ├── jsdoc
+│   ├── sassdoc
+│   ├── styleguide
+├── src
+│   ├── assets
+│   │   ├── icons
+│   │   ├── images
+│   │   ├── sass
+│   │   ├── scripts
+│   ├── app.js
+│   ├── index.html
+│   ├── main.css
+├── .babelrc
+├── .eslint.js
+├── .gitignore
+├── .prettierrc
+├── .stylelintrc
+├── Gruntfile.js
+├── kss-config.json
+├── package-lock.json
+├── package.json
+├── README.md
+```
 
 
 ## Tasks
