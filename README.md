@@ -5,6 +5,7 @@ Boilerplate ♨️ is a clean, modern, design-system focused project boilerplate
 ## Features
 This project features a several goodies that will help improve your development workflow, so you can spend time on what you do best--developing websites--instead of configuring tools.
 
+- Taskrunning with Grunt
 - Sass
   * Sensible configuration
   * SMACSS-based architecture
@@ -20,11 +21,14 @@ This project features a several goodies that will help improve your development 
 - Icon (SVG) concatenation & minification
 - Image minification
 - [BrowserSync](https://www.browsersync.io/)
-- Testing with Jasmine / Mocha **(Coming Soon)**
 - Versioning
 - Deployment to Github
 - [KSS Node](https://github.com/kss-node/kss-node) for easy styleguide creation
 - Lightweight CSS Normalization with [Sanitize.css](https://github.com/jonathantneal/sanitize.css)
+
+**Coming Soon**
+- Webpack support
+- Test-driven development features
 
 
 ## Requirements
