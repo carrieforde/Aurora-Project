@@ -64,16 +64,16 @@ npm install
 ## Project Structure
 ```
 boilerplate/
-├── docs
+├── docs/
 │   ├── jsdoc
 │   ├── sassdoc
 │   ├── styleguide
-├── src
-│   ├── assets
-│   │   ├── icons
-│   │   ├── images
-│   │   ├── sass
-│   │   ├── scripts
+├── src/
+│   ├── assets/
+│   │   ├── icons/
+│   │   ├── images/
+│   │   ├── sass/
+│   │   ├── scripts/
 │   ├── app.js
 │   ├── index.html
 │   ├── main.css
