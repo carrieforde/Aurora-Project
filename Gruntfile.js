@@ -50,15 +50,11 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-		cssmin: {
-			target: {
-				files: [
-					{
-						src: ['src/assets/*.css', '!*.min.css'],
-						dest: 'dist/style.min.css',
-						ext: '.min.css'
-					}
-				]
+		cssnano: {
+			dist: {
+				files: {
+					'dist/main.min.css': 'src/main.css'
+				}
 			}
 		},
 		babel: {
@@ -230,11 +226,11 @@ module.exports = function (grunt) {
 
 		if (full) {
 
-			grunt.task.run(['cssmin', 'uglify', 'icons', 'imagemin']);
+			grunt.task.run(['cssnano', 'uglify', 'icons', 'imagemin']);
 
 		} else {
 
-			grunt.task.run(['cssmin', 'uglify', 'icons']);
+			grunt.task.run(['cssnano', 'uglify', 'icons']);
 
 		}
 

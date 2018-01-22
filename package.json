@@ -30,6 +30,7 @@
     "grunt-contrib-jasmine": "^1.1.0",
     "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-cssnano": "^2.1.0",
     "grunt-eslint": "^20.1.0",
     "grunt-exec": "^3.0.0",
     "grunt-jsdoc": "^2.2.0",
