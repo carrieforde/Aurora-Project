@@ -1,5 +1,5 @@
 # Aurora
-Aurora is a clean, modern, design-system focused project Aurora that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
+Aurora is a clean, modern, design-system focused project boilerplate that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
 
 
 ## Features
