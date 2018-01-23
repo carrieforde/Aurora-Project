@@ -1,5 +1,5 @@
 {
-  "title": "Boilerplate ♨️",
+  "title": "Aurora",
   "source": "src/assets/sass/",
   "destination": "docs/styleguide/",
   "css": "../../src/main.css",

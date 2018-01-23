@@ -1,5 +1,5 @@
-# Boilerplate ♨️
-Boilerplate ♨️ is a clean, modern, design-system focused project boilerplate that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
+# Aurora
+Aurora is a clean, modern, design-system focused project Aurora that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
 
 
 ## Features
@@ -55,19 +55,19 @@ npm install -g browser-sync eslint grunt grunt-cli prettier sassdoc stylelint
 To get started, clone this repo to your computer:
 
 ```sh
-git clone https://github.com/carrieforde/boilerplate.git boilerplate
+git clone https://github.com/carrieforde/Aurora.git Aurora
 ```
 Once you have cloned the project, move into the project directory and install all the Node dependencies:
 
 ```sh
-cd boilerplate
+cd Aurora
 npm install
 ```
 
 
 ## Project Structure
 ```
-boilerplate/
+Aurora/
 ├── docs/
 │   ├── jsdoc
 │   ├── sassdoc
@@ -95,7 +95,7 @@ boilerplate/
 
 
 ## Tasks
-Once you have run `npm install`, you're ready to start using Boilerplate's taskrunning features. Boilerplate ♨️ includes several `grunt` tasks and one `NPM` task for working with `KSS`.
+Once you have run `npm install`, you're ready to start using Aurora's taskrunning features. Aurora includes several `grunt` tasks and one `NPM` task for working with `KSS`.
 
 ### Grunt
 #### `grunt`
@@ -140,7 +140,7 @@ Similar to `grunt watch`. Watches for changes to `.scss` files and runs `npm run
 
 
 ## Linting
-Boilerplate ♨️ includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
+Aurora includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
 
 ### Stylelint
 
