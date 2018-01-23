@@ -1,20 +1,11 @@
 {
-  "name": "Aurora",
-  "version": "1.0.0",
-  "description": "A Sass-ready Aurora.",
+  "name": "aurora",
+  "version": "0.1.0",
+  "description": "A clean, modern, design-system focused project boilerplate that's both Sass and ES6 ready.",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "kss": "kss --config kss-config.json",
-    "watch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss"
+  "directories": {
+    "doc": "docs"
   },
-  "keywords": [
-    "sass",
-    "javascript",
-    "es6"
-  ],
-  "author": "Carrie Forde",
-  "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.3",
     "babel-core": "^6.26.0",
@@ -50,5 +41,27 @@
     "stylelint-config-recommended-scss": "^3.0.0",
     "stylelint-order": "^0.8.0",
     "stylelint-scss": "^2.2.0"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carrieforde/Aurora.git"
+  },
+  "keywords": [
+    "sass",
+    "javascript",
+    "es6",
+    "eslint",
+    "stylelint",
+    "kss",
+    "design-system"
+  ],
+  "author": "Carrie Forde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carrieforde/Aurora/issues"
+  },
+  "homepage": "https://github.com/carrieforde/Aurora#readme"
 }
