@@ -14,6 +14,7 @@
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.9",
     "css-mqpacker": "^6.0.1",
+    "cssnano": "^3.10.0",
     "eslint": "^4.14.0",
     "eslint-loader": "^1.9.0",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -44,15 +45,15 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
-    "dev": "webpack-dev-server --open && webpack --watch",
+    "build": "NODE_ENV=production webpack",
+    "dev": "webpack-dev-server --open",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "jsdocwatch": "onchange 'src/assets/scripts/*js' -- npm run jsdoc",
     "kss": "kss --config kss-config.json",
     "ksswatch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",
     "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
     "sassdocwatch": "onchange 'src/assets/sass/**/*.scss' -- npm run sassdoc",
-    "alldocs": "npm run jsdoc && npm run kss && npm run sassdoc"
+    "alldocs": "concurrently \"npm run jsdoc\" \"npm run kss\" \"npm run sassdoc"
   },
   "repository": {
     "type": "git",
