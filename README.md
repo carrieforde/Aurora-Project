@@ -5,7 +5,7 @@ Aurora is a clean, modern, design-system focused project boilerplate that's both
 ## Features
 This project features a several goodies that will help improve your development workflow, so you can spend time on what you do best--developing websites--instead of configuring tools.
 
-- Taskrunning with Grunt
+- Webpack support
 - Sass
   * Sensible configuration
   * SMACSS-based architecture
@@ -27,7 +27,6 @@ This project features a several goodies that will help improve your development 
 - Lightweight CSS Normalization with [Sanitize.css](https://github.com/jonathantneal/sanitize.css)
 
 **Coming Soon**
-- Webpack support
 - Test-driven development features
 
 
@@ -45,7 +44,7 @@ This project features a several goodies that will help improve your development 
 To globally install all the required & recommended packages in one go, use this command:
 
 ```sh
-npm install -g browser-sync eslint grunt grunt-cli prettier sassdoc stylelint
+npm install -g eslint jsdoc prettier sassdoc stylelint
 ```
 
 *Note: you will still need to install packages locally to the project per the Getting Started instructions below*
@@ -55,19 +54,19 @@ npm install -g browser-sync eslint grunt grunt-cli prettier sassdoc stylelint
 To get started, clone this repo to your computer:
 
 ```sh
-git clone https://github.com/carrieforde/Aurora.git Aurora
+git clone https://github.com/carrieforde/Aurora.git /path/to/project
 ```
 Once you have cloned the project, move into the project directory and install all the Node dependencies:
 
 ```sh
-cd Aurora
+cd /path/to/project
 npm install
 ```
 
 
 ## Project Structure
 ```
-Aurora/
+aurora/
 ├── docs/
 │   ├── jsdoc
 │   ├── sassdoc
@@ -85,6 +84,7 @@ Aurora/
 ├── .eslint.js
 ├── .gitignore
 ├── .prettierrc
+├── .stylelintignore
 ├── .stylelintrc
 ├── Gruntfile.js
 ├── kss-config.json
@@ -94,49 +94,35 @@ Aurora/
 ```
 
 
-## Tasks
-Once you have run `npm install`, you're ready to start using Aurora's taskrunning features. Aurora includes several `grunt` tasks and one `NPM` task for working with `KSS`.
+## Tasks & Bundling
+Once you have run `npm install`, you're ready to start using Aurora's taskrunning features. Aurora includes several `node` tasks, and bundling with Webpack.
 
-### Grunt
-#### `grunt`
-This default task kicks off BrowserSync and `grunt watch`.
+### `npm run build`
+Generates bundled files with `webpack`.
 
-#### `grunt watch`
-On file save:
-- Lints, compiles, and runs PostCSS on styles
-- Concatenates, transpiles, and minifies JavaScript files
-- Minifies and concatenates SVG files
+### `npm run dev`
+Uses `webpack` to spin up a development server at `http://localhost:9000`, and initiates `webpack --watch`. Changes to files in `./src` will be bundled automatically, and the site will be reloaded.
 
-This task does not use BrowserSync. Use the default [`grunt`](#grunt) task instead.
+### `npm run jsdoc`
+Looks through JavaScript files and generates API documentation based on [JSDoc comments](http://usejsdoc.org/about-getting-started.html#adding-documentation-comments-to-your-code).
 
-#### `grunt styles`
-This tasks lints files using Stylelint, compiles the Sass, 
-This task lints files using Stylelint, which outputs warnings and errors to the console, compiles the Sass into `src/style.css`, and processes `style.css` with PostCSS (autoprefixing and Media Query sorting).
+### `npm run jsdocwatch`
+Watches for changes to JavaScript files and automatically runs `npm run jsdoc`.
 
-#### `grunt scripts`
-This task concatenates all scripts in `src/assets/scripts`, transpiles any ES2015 (ES6) or newer JavaScript through Babel, and lints files agains the .eslintrc.js.
-
-#### `grunt icons`
-Minify individual SVG icon files and concatenate the SVG into a single SVG sprite.
-
-#### `grunt lint`
-Lints Sass and preprocessed JavaScript files against Stylelint and ES Lint, respectively.
-
-#### `grunt minify` & `grunt minify:true`
-Minifies styles, scripts, and icons, outputting to the root `src` directory. Passing true to the task will also minify images.
-
-#### `grunt build`
-This tasks runs `styles`, `scripts`, `icons`, and `minify:full`. It's meant primarily as a pre-deployment step.
-
-#### `grunt deploy`
-Runs `build`, and uses [Semver](https://semver.org/) to update the application version. Defaults to `patch` when no option is passed. Also accepts: `grunt deploy:major` and `grunt deploy:minor`.
-
-### NPM
-#### `npm run kss`
+### `npm run kss`
 Looks through Sass files and compiles a KSS styleguide based on Sass comments.
 
-####  `npm run watch`
+###  `npm run watch`
 Similar to `grunt watch`. Watches for changes to `.scss` files and runs `npm run kss` automatically.
+
+### `npm run sassdoc`
+Generates Sassdoc documentation based on [Sassdoc annotations](http://sassdoc.com/annotations/) in all `.sass` and `.scss` files.
+
+### `npm run sassdocwatch`
+Watches for changes to Sass files and automatically runs `npm run sassdoc`.
+
+### `npm run alldocs`
+Generates JS API documentation, KSS styleguide, and Sassdoc documentation in one go.
 
 
 ## Linting
