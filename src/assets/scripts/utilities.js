@@ -164,4 +164,245 @@ export class Utilities {
 
     return removed;
   }
+
+  /**
+   * Creates a new element with attributes.
+   * 
+   * @param   {object} obj The configuration options for the new element.
+   * @returns {string}     The new element.
+   * @memberof Utilities
+   */
+  createElement (obj) {
+
+    const options = Object.assign({
+            'tag': 'div',
+            'class': '',
+            'id': '',
+            'content': ''
+          }, obj),
+          el = document.createElement(options.tag);
+
+    el.classList.add(options.class);
+    el.setAttribute('id', options.id);
+    el.textContent = options.content;
+
+    return el;
+  }
+
+  /**
+   * Spins up multiple elements at a time.
+   * 
+   * @param   {string} els The element tag.
+   * @returns {array}      An array of elements.
+   * @memberof Utilities
+   */
+  addMultipleElements (...els) {
+
+    let elements = [];
+
+    els.forEach(element => {
+      elements.push(document.createElement(element));
+    });
+
+    return elements;
+  }
+
+  /**
+   * Makes a string to sentence case.
+   * 
+   * @param   {string} string The string to convert to sentence case.
+   * @returns {string}        The sentence case string.
+   * @memberof Utilities
+   */
+  sentenceCase (string) {
+
+    let modString;
+
+    modString = string.substring(0, 1).toUpperCase();
+    modString += string.substring(1, string.length).toLowerCase();
+
+    return modString;
+  }
+
+  /**
+   * Makes a string hyphen case.
+   * 
+   * @param   {string} string The string to convert to hyphen case.
+   * @returns {string}        The hyphen case string.
+   * @memberof Utilities
+   */
+  hyphenCase (string) {
+
+    const modString = string.replace(/([^a-z\d])/gi, '-');
+
+    if (modString.indexOf('-', modString.length - 1) !== -1) {
+      return modString.substring(0, modString.length - 1).toLowerCase();
+    }
+
+    return modString.toLowerCase();
+  }
+
+  /**
+   * Makes a string camel case.
+   * 
+   * @param   {string} string The string to convert to camel case.
+   * @returns {string}        The camel case string.
+   * @memberof Utilities
+   */
+  camelCase (string) {
+
+    string = string.split (' ');
+    string[0] = string[0].toLowerCase();
+
+    for (let i = 1; i < string.length; i++) {
+
+      let subString = '';
+
+      for (let j = 0; j < string[i].length; j++) {
+
+        if (0 === j) {
+          subString += string[i][j].toUpperCase(0);
+        } else {
+          subString += string[i][j];
+        }
+      }
+
+      string[i] = subString;
+    }
+
+    string = string.join('');
+    return string.replace(/([^a-z\d])/gi, '');
+  }
+
+  /**
+   * Get a random number between provided min and max.
+   * 
+   * @param   {number} min The minimum.
+   * @param   {number} max The maximum.
+   * @returns {number}     A random number between the min and max.
+   * @memberof Utilities
+   */
+  getRandomInt (min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  /**
+   * Gets all site cookies.
+   * 
+   * @returns {object} An object with key-value pairs for each cookie set.
+   * @memberof Utilities
+   */
+  getAllCookies () {
+
+    let cookies   = document.cookie,
+        cookieObj = {};
+
+    cookies = cookies.split('; ');
+
+    cookies.forEach(cookie => {
+      const val = cookie.split('=');
+
+      cookieObj[val[0]] = val[1];
+    });
+
+    return cookieObj;
+  }
+
+  /**
+   * Checks whether a specific cookie is set.
+   * 
+   * @param   {string}  cookie The cookie's key.
+   * @returns {boolean}        Whether the cookie is set.
+   * @memberof Utilities
+   */
+  isCookieSet (cookie) {
+
+    const cookies = this.getCookies();
+
+    for (const key in cookies) {
+      if (key === cookie) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Set a session or persistent cookie.
+   * 
+   * @param {string} key    The cookie key.
+   * @param {string} value  The cookie value.
+   * @param {number} expiry The number of days until expiry. Leave blank for session cookies.
+   * @memberof Utilities
+   */
+  setCookie (key, value, expiry) {
+
+    let date,
+        expires;
+
+    if (expiry) {
+      date = new Date();
+      date.setMinutes(date.getMinutes() + (60 * 24 * expiry));
+      expires = `expires=${date.toUTCString()}`;
+    }
+
+    document.cookie = `${key}=${value};${expires}`;
+  }
+
+  /**
+   * Deletes a persistent cookie.
+   * 
+   * @param {string} key   The cookie's key.
+   * @param {string} value The cookie's value.
+   * @memberof Utilities
+   */
+  deleteCookie (key, value) {
+    document.cookie = `${key}=${value};expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+  }
+
+  /**
+   * Gets data from an API.
+   * 
+   * @param {string}   method   The method to use -- GET or POST.
+   * @param {string}   dataURL  The URL where the data resides.
+   * @param {function} callback The function to call to deal with the result.
+   * @memberof Utilities
+   */
+  getData (method, dataURL, callback) {
+
+    const promise = new Promise((resolve, reject) => {
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.onload = () => {
+
+        let response;
+
+        if (xhr.status === 200) {
+          response = JSON.parse(xhr.response);
+          
+          if (response.error) {
+            reject(`Sorry, there was an error.`);
+          }
+  
+          resolve(response);
+        }
+      };
+
+      xhr.onerror = () => reject(`Sorry, there was an error.`);
+
+      xhr.open(method, dataURL);
+      xhr.send();
+    });
+
+    promise.then(
+      result => {
+        callback(result);
+      },
+      error => {
+        console.log(error); // eslint-disable-line no-console
+      }
+    )
+  }
 } // end Utilities
