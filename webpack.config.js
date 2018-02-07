@@ -44,7 +44,6 @@ const config = {
                 plugins: [
                   require('autoprefixer')({ browsers: 'last 2 versions' }),
                   require('css-mqpacker')({ sort: true }),
-                  isProd ? require('cssnano')() : ''
                 ],
                 sourceMap: !isProd
               }
