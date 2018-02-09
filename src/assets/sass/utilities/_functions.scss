@@ -107,3 +107,51 @@
 	}
 	@return map-get($z, $index);
 }
+
+/// Calculate the luminance of a given color.
+///
+/// @param  {Color}  $color - The color to check.
+/// @return {Number}        - The color's luminance.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function luminance($color) {
+	$red: red($color) * 0.2126;
+	$green: green($color) * 0.7152;
+	$blue: blue($color) * 0.0722;
+
+	@return $red + $green + $blue;
+}
+
+/// Calculate the contrast between two colors.
+///
+/// @param  {Color}  $color1 - The first color to check.
+/// @param  {Color}  $color2 - The second color to check.
+/// @return {Number}         - The contrast ratio between the two colors.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function calculate-contrast($color1, $color2) {
+
+	$color1: luminance($color1) + 0.05;
+	$color2: luminance($color2) + 0.05;
+
+	@return max($color1, $color2) / min($color1, $color2);
+}
+
+/// Chooses the color with the best contrast for the base.
+///
+/// @param  {Color} $base-color                  - The color against which to check.
+/// @param  {Color} $light [$text-default-light] - The light color against which to check.
+/// @param  {Color} $dark  [$text-default-dark]  - The dark color against which to check.
+/// @return {Color}                              - The color with the better contrast.
+///
+/// @link   https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
+@function contrast($base-color, $light: $text-default-light, $dark: $text-default-dark) {
+	$contrast-light: calculate-contrast($base-color, $light);
+	$contrast-dark: calculate-contrast($base-color, $dark);
+
+	@if ($contrast-light > $contrast-dark) {
+		@return $light;
+	} @else {
+		@return $dark;
+	}
+}
