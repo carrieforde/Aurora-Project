@@ -76,3 +76,63 @@
 		width: auto;
 	}
 }
+
+/// Centers a background image, and makes sure it covers its container.
+///
+/// @example - scss Usage
+///  @include image-as-background
+@mixin image-as-background {
+	background-position: center;
+	background-size: cover;
+}
+
+/// Declare the element `height` and `width`.
+///
+/// @param {Number} $width           - The element width.
+/// @param {Number} $height [$width] - The element height.
+///
+/// @example - scss Usage
+///  .el {
+///    @include size(50px, 150px);
+///  }
+///
+/// @example - css Output
+///  .el {
+///    height: 150px;
+///    width: 50px;
+///  }
+///
+/// @example - scss Usage
+///  .el {
+///    @include size(50px);
+///  }
+///
+/// @example - css Output
+///  .el {
+///    height: 50px;
+///    width: 50px;
+///  }
+@mixin size($width, $height) {
+	@if not $height {
+		$height: $width;
+	}
+
+	height: $height;
+	width: $width;
+}
+
+/// Set an aspect ratio on an element.
+///
+/// @param {Number} $width    - The width ratio, this value should be unitless.
+/// @param {Number} $height   - The height ratio, this value should be unitless.
+/// @param {Number} $el-width - The element width.
+///
+/// @example - scss Usage for 3:2 ratio
+///  .el {
+///    @include aspect-ratio(3, 2, 50%);
+///  }
+@mixin aspect-ratio($width, $height, $el-width) {
+	@include size($el-width, 0);
+
+	padding-top: $height / $width * $el-width;
+}
