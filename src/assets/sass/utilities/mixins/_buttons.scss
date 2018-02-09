@@ -95,7 +95,7 @@
 	} @else if $string == 'pill' {
 		border-radius: 50px;
 	} @else {
-		@error "That button type does not exist!";
+		@error "`#{inspect($string)}` button type does not exist!";
 	}
 }
 
