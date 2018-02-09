@@ -95,3 +95,15 @@
 @function shade($color, $amount) {
 	@return mix(#000, $color, $amount);
 }
+
+/// Get a z-index from a z-index map.
+///
+/// @param  {String} $index        - The index to get.
+/// @param  {Map}    $z [$z-index] - The map containing z-indeces.
+/// @return {Number}               - The corresponding z-index value.
+@function z($index, $z: $z-index) {
+	@if not map-get($z, $index) {
+		@warn 'No index `#{inspect($index)}` found!';
+	}
+	@return map-get($z, $index);
+}
