@@ -46,10 +46,11 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "dev": "webpack-dev-server --open",
+    "format": "prettier --write --single-quote --print-width=120 \"src/**/*.{js,jsx}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
     "ksswatch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",
-    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
+    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc"
   },
   "repository": {
     "type": "git",
