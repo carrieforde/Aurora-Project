@@ -44,16 +44,12 @@
     "webpack-dev-server": "^2.11.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack",
     "dev": "webpack-dev-server --open",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
-    "jsdocwatch": "onchange 'src/assets/scripts/*js' -- npm run jsdoc",
     "kss": "kss --config kss-config.json",
     "ksswatch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",
     "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
-    "sassdocwatch": "onchange 'src/assets/sass/**/*.scss' -- npm run sassdoc",
-    "alldocs": "concurrently \"npm run jsdoc\" \"npm run kss\" \"npm run sassdoc"
   },
   "repository": {
     "type": "git",
