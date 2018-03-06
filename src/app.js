@@ -1,2 +1,2 @@
 /* eslint-disable */
-const sass = require('main.scss');
+const sass = require('./assets/sass/main.scss');
