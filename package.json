@@ -53,7 +53,8 @@
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
     "ksswatch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",
-    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc"
+    "sassdoc": "sassdoc src/assets/sass/**/*.scss -d docs/sassdoc",
+    "stylelint": "stylelint \"src/assets/sass/**/*.{css,scss}\""
   },
   "repository": {
     "type": "git",
