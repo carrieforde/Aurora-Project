@@ -7,17 +7,17 @@
 ///
 /// @link http://nicolasgallagher.com/micro-clearfix-hack/
 @mixin clearfix {
-	*zoom: 1;
+  *zoom: 1;
 
-	&:after,
-	&:before {
-		content: ' ';
-		display: table;
-	}
+  &:after,
+  &:before {
+    content: ' ';
+    display: table;
+  }
 
-	&:after {
-		clear: both;
-	}
+  &:after {
+    clear: both;
+  }
 }
 
 /// Removes list delimiters, margin, and padding from `ul` or `ol` elements.
@@ -25,9 +25,9 @@
 /// @example - scss Usage
 ///  @include list-reset
 @mixin list-reset {
-	list-style: none;
-	margin: 0;
-	padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 /// Extend an element to the edge of the viewport when the parent has a fixed width.
@@ -37,12 +37,12 @@
 ///
 /// @link https://css-tricks.com/full-width-containers-limited-width-parents/
 @mixin full-width {
-	left: 50%;
-	margin-left: -50vw;
-	margin-right: -50vw;
-	position: relative;
-	right: 50%;
-	width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
 }
 
 /// Visually hides text, but text is still available for screen readers. Text is not focusable.
@@ -50,14 +50,14 @@
 /// @example - scss Usage
 ///  @include screen-reader-text
 @mixin screen-reader-text {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /// Visually hides text, but it's still available for screen readers, and is still focusable.
@@ -65,16 +65,15 @@
 /// @example - scss Usage
 ///  @include screen-reader-text-focusable
 @mixin screen-reader-text-focusable {
-
-	&:focus {
-		border: auto;
-		clip: auto;
-		height: auto;
-		margin: 0;
-		overflow: visible;
-		position: static;
-		width: auto;
-	}
+  &:focus {
+    border: auto;
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
 }
 
 /// Centers a background image, and makes sure it covers its container.
@@ -82,8 +81,8 @@
 /// @example - scss Usage
 ///  @include image-as-background
 @mixin image-as-background {
-	background-position: center;
-	background-size: cover;
+  background-position: center;
+  background-size: cover;
 }
 
 /// Declare the element `height` and `width`.
@@ -113,12 +112,12 @@
 ///    width: 50px;
 ///  }
 @mixin size($width, $height) {
-	@if not $height {
-		$height: $width;
-	}
+  @if not $height {
+    $height: $width;
+  }
 
-	height: $height;
-	width: $width;
+  height: $height;
+  width: $width;
 }
 
 /// Set an aspect ratio on an element.
@@ -132,7 +131,7 @@
 ///    @include aspect-ratio(3, 2, 50%);
 ///  }
 @mixin aspect-ratio($width, $height, $el-width) {
-	@include size($el-width, 0);
+  @include size($el-width, 0);
 
-	padding-top: $height / $width * $el-width;
+  padding-top: $height / $width * $el-width;
 }

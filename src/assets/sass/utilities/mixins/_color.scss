@@ -7,25 +7,23 @@
 /// @param {Boolean} $include-text [true] - Whether to create text / color classes.
 /// @param {Boolean} $include-fill [false] - Whether to include icon / fill color classes.
 @mixin colors($color-map: $theme-colors, $include-bg: true, $include-text: true, $include-fill: false) {
+  @each $name, $color in $color-map {
+    @if $include-bg {
+      .bg-#{$name} {
+        background-color: $color;
+      }
+    }
 
-	@each $name, $color in $color-map {
+    @if $include-text {
+      .text-#{$name} {
+        color: $color;
+      }
+    }
 
-		@if $include-bg {
-			.bg-#{$name} {
-				background-color: $color;
-			}
-		}
-
-		@if $include-text {
-			.text-#{$name} {
-				color: $color;
-			}
-		}
-
-		@if $include-fill {
-			.fill-#{$name} {
-				fill: $color;
-			}
-		}
-	}
+    @if $include-fill {
+      .fill-#{$name} {
+        fill: $color;
+      }
+    }
+  }
 }

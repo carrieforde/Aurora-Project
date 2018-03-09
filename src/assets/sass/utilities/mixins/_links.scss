@@ -10,20 +10,20 @@
 /// @example - scss Sample Usage
 ///  @include hover($color__primary, $color__accent);
 @mixin hover($color, $color-hover, $color-active: $color-hover, $color-visited: $color) {
-	color: $color;
+  color: $color;
 
-	&:focus,
-	&:hover {
-		color: $color-hover;
-	}
+  &:focus,
+  &:hover {
+    color: $color-hover;
+  }
 
-	&:active {
-		color: $color-active;
-	}
+  &:active {
+    color: $color-active;
+  }
 
-	&:visited {
-		color: $color-visited;
-	}
+  &:visited {
+    color: $color-visited;
+  }
 }
 
 /// Create decorative links with the `:after` pseudo element.
@@ -41,29 +41,28 @@
 /// @example scss - Sample Usage
 ///  @include decorative-link($color__primary, $color__accent, $content: '\00BB', $after-color: $color__accent);
 @mixin decorative-link($color, $color-hover, $color-active: $color-hover, $color-visited: $color, $content: '\2192', $after-color: $color, $after-color-hover: $after-color, $after-color-active: $after-color, $after-color-visited: $after-color) {
-	@include hover($color, $color-hover, $color-active, $color-visited);
+  @include hover($color, $color-hover, $color-active, $color-visited);
 
-	&:after {
-		color: $after-color;
-		content: $content;
-		margin-left: em(5);
-		transition: margin 0.3s ease-in-out;
-	}
+  &:after {
+    color: $after-color;
+    content: $content;
+    margin-left: em(5);
+    transition: margin 0.3s ease-in-out;
+  }
 
-	&:focus,
-	&:hover {
+  &:focus,
+  &:hover {
+    &:after {
+      color: $after-color-hover;
+      margin-left: em(10);
+    }
+  }
 
-		&:after {
-			color: $after-color-hover;
-			margin-left: em(10);
-		}
-	}
+  &:active {
+    color: $after-color-active;
+  }
 
-	&:active {
-		color: $after-color-active;
-	}
-
-	&:visited {
-		color: $after-color-visited;
-	}
+  &:visited {
+    color: $after-color-visited;
+  }
 }

@@ -48,7 +48,7 @@
     "dev": "webpack-dev-server --open",
     "eslint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "eslint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "format": "prettier --write --single-quote --print-width=120 \"src/**/*.{js,jsx}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,scss}\"",
     "jsdoc": "jsdoc src/assets/scripts/*.js -d docs/jsdoc",
     "kss": "kss --config kss-config.json",
     "ksswatch": "onchange 'src/assets/sass/**/*.scss' -- npm run kss",

@@ -14,26 +14,26 @@
 ///
 /// @todo Determine whether color should be passed, or add way to automatically determine color to use (light or dark).
 @mixin button($background, $border: 0, $background-hover: lighten($background, 10%), $border-hover: $border, $background-active: $background-hover, $border-active: $border-hover) {
-	background-color: $background;
-	border: $border;
-	color: $text-default-dark;
+  background-color: $background;
+  border: $border;
+  color: $text-default-dark;
 
-	&:focus,
-	&:hover {
-		background-color: $background-hover;
-		border: $border-hover;
-		color: $text-default-dark;
-	}
+  &:focus,
+  &:hover {
+    background-color: $background-hover;
+    border: $border-hover;
+    color: $text-default-dark;
+  }
 
-	&:disabled {
-		background-color: tone($background, 20%);
-	}
+  &:disabled {
+    background-color: tone($background, 20%);
+  }
 
-	&:active {
-		background-color: $background-active;
-		border: $border-active;
-		color: $text-default-dark;
-	}
+  &:active {
+    background-color: $background-active;
+    border: $border-active;
+    color: $text-default-dark;
+  }
 }
 
 /// Generate outline buttons.
@@ -50,26 +50,26 @@
 /// @example - scss Sample Usage
 ///  @include button-outline($base-border, $color__primary, $background-hover: $color__accent);
 @mixin button-outline($border, $color, $border-hover: $border, $color-hover: darken($color, 10%), $background-hover: transparent, $border-active: $border-hover, $color-active: $color-hover, $background-active: $background-hover) {
-	background-color: transparent;
-	border: $border;
-	color: $color;
+  background-color: transparent;
+  border: $border;
+  color: $color;
 
-	&:focus,
-	&:hover {
-		background-color: $background-hover;
-		border: $border-hover;
-		color: $color-hover;
-	}
+  &:focus,
+  &:hover {
+    background-color: $background-hover;
+    border: $border-hover;
+    color: $color-hover;
+  }
 
-	&:disabled {
-		color: tone($color, 20%);
-	}
+  &:disabled {
+    color: tone($color, 20%);
+  }
 
-	&:active {
-		background-color: $background-active;
-		border: $border-active;
-		color: $color-active;
-	}
+  &:active {
+    background-color: $background-active;
+    border: $border-active;
+    color: $color-active;
+  }
 }
 
 /// Create buttons of different sizes.
@@ -80,9 +80,9 @@
 ///
 /// @todo clean up default value passed to $line-height.
 @mixin button-size($font-size, $line-height: unitless-calc($base-line-height, $base-font-size), $padding: 0.5em 1em) {
-	font-size: $font-size;
-	line-height: $line-height;
-	padding: $padding;
+  font-size: $font-size;
+  line-height: $line-height;
+  padding: $padding;
 }
 
 /// Create different styles of button.
@@ -90,16 +90,14 @@
 /// @param {String} $string ['rounded'] - The type of button to produce.
 /// @todo Consider adding more button styles see [Unicorn Buttons](http://unicorn-ui.com/buttons/builder/) & [these buttons](https://labs.loupbrun.ca/buttons/) are good inspiration.
 @mixin button-style($string: 'rounded') {
-	@if $string == 'rounded' {
-		border-radius: $base-radius;
-	} @else if $string == 'pill' {
-		border-radius: 50px;
-	} @else {
-		@error "`#{inspect($string)}` button type does not exist!";
-	}
+  @if $string == 'rounded' {
+    border-radius: $base-radius;
+  } @else if $string == 'pill' {
+    border-radius: 50px;
+  } @else {
+    @error "`#{inspect($string)}` button type does not exist!";
+  }
 }
-
-
 
 /// Create a hamburger menu button. JavaScript interaction needs to be hooked up separately.
 ///
@@ -120,61 +118,59 @@
 ///    @include hamburger-button($color__primary);
 ///  }
 @mixin hamburger-button($bar-color, $bar-hover: $bar-color, $bar-height: 3px, $bar-width: 20px, $bar-selector: '.bars') {
-	background-color: transparent;
-	max-width: $bar-width;
-	padding: $bar-height * 5 / 2 $bar-width / 2;
-	position: relative;
-	text-indent: -9999em;
+  background-color: transparent;
+  max-width: $bar-width;
+  padding: $bar-height * 5 / 2 $bar-width / 2;
+  position: relative;
+  text-indent: -9999em;
 
-	#{$bar-selector} {
+  #{$bar-selector} {
+    &,
+    &:after,
+    &:before {
+      background-color: $bar-color;
+      display: block;
+      height: $bar-height;
+      left: 0;
+      margin: 0 auto;
+      position: absolute;
+      right: 0;
+      transition: all 0.3s ease-in-out;
+      width: $bar-width;
+    }
 
-		&,
-		&:after,
-		&:before {
-			background-color: $bar-color;
-			display: block;
-			height: $bar-height;
-			left: 0;
-			margin: 0 auto;
-			position: absolute;
-			right: 0;
-			transition: all 0.3s ease-in-out;
-			width: $bar-width;
-		}
+    &:after,
+    &:before {
+      content: '';
+    }
 
-		&:after,
-		&:before {
-			content: '';
-		}
-		
-		// Top bar.
-		&:before {
-			top: $bar-height * -2;
-		}
-		
-		// Middle bar.
-		& { // stylelint-disable-line no-duplicate-selectors
-			top: 50%;
-			transform: translateY(-50%);
-		}
-		
-		// Bottom bar.
-		&:after {
-			bottom: $bar-height * -2;
-		}
-	}
+    // Top bar.
+    &:before {
+      top: $bar-height * -2;
+    }
 
-	&:hover {
+    // Middle bar.
+    & {
+      // stylelint-disable-line no-duplicate-selectors
+      top: 50%;
+      transform: translateY(-50%);
+    }
 
-		#{$bar-selector} {
-			
-			&,
-			&:after,
-			&:before {
-				background-color: $bar-hover;
-			}
-		}
-	}
+    // Bottom bar.
+    &:after {
+      bottom: $bar-height * -2;
+    }
+  }
+
+  &:hover {
+    #{$bar-selector} {
+      &,
+      &:after,
+      &:before {
+        background-color: $bar-hover;
+      }
+    }
+  }
 }
 
 /// Transforms the hamburger button into an X.
@@ -192,28 +188,27 @@
 ///     }
 ///  }
 @mixin hamburger-button-active($bar-color, $bar-height: 3px, $bar-selector: '.bars') {
+  #{$bar-selector} {
+    & {
+      // stylelint-disable-line no-duplicate-selectors
+      background-color: rgba($bar-color, 0);
+    }
 
-	#{$bar-selector} {
+    &:after,
+    &:before {
+      background-color: $bar-color;
+      top: calc(50% - #{$bar-height} / 2);
+      transform: translateY(-50%);
+    }
 
-		& { // stylelint-disable-line no-duplicate-selectors
-			background-color: rgba($bar-color, 0);
-		}
+    &:before {
+      transform: rotate(45deg);
+    }
 
-		&:after,
-		&:before {
-			background-color: $bar-color;
-			top: calc(50% - #{$bar-height} / 2);
-			transform: translateY(-50%);
-		}
-
-		&:before {
-			transform: rotate(45deg);
-		}
-
-		&:after {
-			transform: rotate(-45deg);
-		}
-	}
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
 }
 
 /// Create a close button.
@@ -234,31 +229,31 @@
 /// @example - scss Sample Usage
 ///  .close { @include close-button($color__primary, transparent); }
 @mixin close-button($x-color, $x-size: 1rem, $background: transparent, $hover-x-color: $x-color, $hover-background: $background, $active-x-color: $hover-x-color, $active-background: $hover-background) {
-	background-color: $background;
-	transition: background-color 0.3s ease-in-out;
+  background-color: $background;
+  transition: background-color 0.3s ease-in-out;
 
-	&:after {
-		color: $x-color;
-		content: '\00D7';
-		transition: color 0.3s ease-in-out;
-	}
+  &:after {
+    color: $x-color;
+    content: '\00D7';
+    transition: color 0.3s ease-in-out;
+  }
 
-	&:focus,
-	&:hover {
-		background-color: $hover-background;
+  &:focus,
+  &:hover {
+    background-color: $hover-background;
 
-		&:after {
-			color: $hover-x-color;
-		}
-	}
+    &:after {
+      color: $hover-x-color;
+    }
+  }
 
-	&:active {
-		background-color: $active-background;
+  &:active {
+    background-color: $active-background;
 
-		&:after {
-			color: $active-x-color;
-		}
-	}
+    &:after {
+      color: $active-x-color;
+    }
+  }
 }
 
 /// Creates a Plus-Minus button. Requires JavaScript be implemented separately.
@@ -278,60 +273,58 @@
 /// @example - scss Sample Usage
 ///  .plus-minus { @include plus-minus-button($color__primary); }
 @mixin plus-minus-button($bar-color, $bar-height: 3px, $bar-width: 20px, $background: transparent, $hover-bar-color: $bar-color, $hover-background: $background, $active-bar-color: $hover-bar-color, $active-background: $hover-background, $include-active: false, $active-selector: null) {
+  background-color: $background;
+  padding: $bar-width / 2;
+  position: relative;
 
-	background-color: $background;
-	padding: $bar-width / 2;
-	position: relative;
+  &:after,
+  &:before {
+    background-color: $bar-color;
+    bottom: 0;
+    content: '';
+    display: block;
+    height: $bar-height;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    width: $bar-width;
+  }
 
-	&:after,
-	&:before {
-		background-color: $bar-color;
-		bottom: 0;
-		content: '';
-		display: block;
-		height: $bar-height;
-		left: 0;
-		margin: auto;
-		position: absolute;
-		right: 0;
-		top: 0;
-		transition: all 0.3s ease-in-out;
-		width: $bar-width;
-	}
+  &:after {
+    transform: rotate(90deg);
+  }
 
-	&:after {
-		transform: rotate(90deg);
-	}
+  &:focus,
+  &:hover {
+    background-color: $hover-background;
 
-	&:focus,
-	&:hover {
-		background-color: $hover-background;
+    &:after,
+    &:before {
+      color: $hover-bar-color;
+    }
+  }
 
-		&:after,
-		&:before {
-			color: $hover-bar-color;
-		}
-	}
+  &:active {
+    background-color: $active-background;
 
-	&:active {
-		background-color: $active-background;
+    &:after,
+    &:before {
+      color: $active-bar-color;
+    }
+  }
 
-		&:after,
-		&:before {
-			color: $active-bar-color;
-		}
-	}
-
-	@if $include-active {
-		
-		@if $active-selector == null {
-			@error '`$include-active` requires `$active-selector` to be specified.';
-		} @else {
-			#{$active-selector} {
-				@include plus-minus-button-active($active-bar-color, $active-background);
-			}
-		}
-	}
+  @if $include-active {
+    @if $active-selector == null {
+      @error '`$include-active` requires `$active-selector` to be specified.';
+    } @else {
+      #{$active-selector} {
+        @include plus-minus-button-active($active-bar-color, $active-background);
+      }
+    }
+  }
 }
 
 /// Styles the active (minus) state of the Plus-Minus button.
@@ -342,14 +335,14 @@
 /// @example - scss Sample Usage
 ///  .plus-minus { @include plus-minus-button-active($color__primary); }
 @mixin plus-minus-button-active($active-bar-color, $active-background: transparent) {
-	background-color: $active-background;
+  background-color: $active-background;
 
-	&:after,
-	&:before {
-		background-color: $active-bar-color;
-	}
+  &:after,
+  &:before {
+    background-color: $active-bar-color;
+  }
 
-	&:after {
-		transform: rotate(180deg);
-	}
+  &:after {
+    transform: rotate(180deg);
+  }
 }
