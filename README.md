@@ -8,21 +8,18 @@ This project features a several goodies that will help improve your development 
 - Webpack support
 - Sass
   * Sensible configuration
-  * SMACSS-based architecture
+  * Flexible architecture
   * Linting with [Stylelint](https://stylelint.io/)
   * Compilation
   * Minification
 - JavaScript
   * Focused on Vanilla JS, but ready for anything
-  * Supports ES6 with Babel
+  * Supports ES Next with Babel
   * Linting with [ESLint](https://eslint.org/)
   * Concatenation
   * Uglification / minification
 - Icon (SVG) concatenation & minification
 - Image minification
-- [BrowserSync](https://www.browsersync.io/)
-- Versioning
-- Deployment to Github
 - [KSS Node](https://github.com/kss-node/kss-node) for easy styleguide creation
 - Lightweight CSS Normalization with [Sanitize.css](https://github.com/jonathantneal/sanitize.css)
 
@@ -32,22 +29,6 @@ This project features a several goodies that will help improve your development 
 
 ## Requirements
 - [Node](http://node.js/) / [NPM](https://www.npmjs.com/)
-- [Grunt CLI](http://gruntjs.com/) - `npm install -g grunt-cli`
-
-### Recommended
-- [BrowserSync](https://browsersync.io/)
-- [ES Lint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [Sassdoc](http://sassdoc.com/)
-- [Stylelint](https://stylelint.io/)
-
-To globally install all the required & recommended packages in one go, use this command:
-
-```sh
-npm install -g eslint jsdoc prettier sassdoc stylelint
-```
-
-*Note: you will still need to install packages locally to the project per the Getting Started instructions below*
 
 
 ## Getting Started
@@ -98,32 +79,37 @@ aurora/
 Once you have run `npm install`, you're ready to start using Aurora's taskrunning features. Aurora includes several `node` tasks, and bundling with Webpack.
 
 ### `npm run build`
-Generates bundled files with `webpack`.
+Generates bundled, production-ready files with `webpack`.
 
 ### `npm run dev`
 Uses `webpack` to spin up a development server at `http://localhost:9000`, and initiates `webpack --watch`. Changes to files in `./src` will be bundled automatically, and the site will be reloaded.
 
+### `npm eslint`
+Runs ESLint against all JavaScript files in the `/src` directory. Only errors will be displayed in the console.
+
+#### `npm eslint:fix`
+A subtask for ESLint that not only checks for JavaScript linting errors, but also auto-fixes any fixable issues.
+
+### `npm format`
+Keep formatting consistent between developers with Prettier. Enforces whether to use tabs or spaces, the number of spaces to use, single vs. double quotes, etc. Automatically fixes JS, JSX, and SCSS files.
+
 ### `npm run jsdoc`
 Looks through JavaScript files and generates API documentation based on [JSDoc comments](http://usejsdoc.org/about-getting-started.html#adding-documentation-comments-to-your-code).
-
-### `npm run jsdocwatch`
-Watches for changes to JavaScript files and automatically runs `npm run jsdoc`.
 
 ### `npm run kss`
 Looks through Sass files and compiles a KSS styleguide based on Sass comments.
 
-###  `npm run watch`
-Similar to `grunt watch`. Watches for changes to `.scss` files and runs `npm run kss` automatically.
+#### `npm run kss:watch`
+Automatically watches Sass files for changes and rebuilds KSS styleguide.
 
 ### `npm run sassdoc`
 Generates Sassdoc documentation based on [Sassdoc annotations](http://sassdoc.com/annotations/) in all `.sass` and `.scss` files.
 
-### `npm run sassdocwatch`
-Watches for changes to Sass files and automatically runs `npm run sassdoc`.
+### `npm run stylelint`
+Runs Stylelint to enforce rules for style files (.css, .scss, etc.) in the `/src` directory. Flags errors in the console.
 
-### `npm run alldocs`
-Generates JS API documentation, KSS styleguide, and Sassdoc documentation in one go.
-
+#### `npm run stylelint:fix`
+A subtask for Stylelint that not only checks against style rules, but automatically fixes fixable issues.
 
 ## Linting
 Aurora includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
