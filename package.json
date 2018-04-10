@@ -74,5 +74,8 @@
   "bugs": {
     "url": "https://github.com/carrieforde/Aurora/issues"
   },
-  "homepage": "https://github.com/carrieforde/Aurora#readme"
+  "homepage": "https://github.com/carrieforde/Aurora#readme",
+  "dependencies": {
+    "npm": "^5.8.0"
+  }
 }
