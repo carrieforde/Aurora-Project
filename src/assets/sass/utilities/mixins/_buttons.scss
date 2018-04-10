@@ -150,8 +150,7 @@
     }
 
     // Middle bar.
-    & {
-      // stylelint-disable-line no-duplicate-selectors
+    & { // stylelint-disable-line no-duplicate-selectors
       top: 50%;
       transform: translateY(-50%);
     }
@@ -189,8 +188,7 @@
 ///  }
 @mixin hamburger-button-active($bar-color, $bar-height: 3px, $bar-selector: '.bars') {
   #{$bar-selector} {
-    & {
-      // stylelint-disable-line no-duplicate-selectors
+    & { // stylelint-disable-line no-duplicate-selectors
       background-color: rgba($bar-color, 0);
     }
 
