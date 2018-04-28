@@ -1,18 +1,20 @@
-const path = require('path'),
+const webpack = require('webpack'),
+  path = require('path'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HTMLWebpackPlugin = require('html-webpack-plugin'),
-  StyleLintPlugin = require('stylelint-webpack-plugin');
+  StyleLintPlugin = require('stylelint-webpack-plugin'),
+  SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
-module.exports = {
+const config = {
   context: __dirname,
-  entry: './src/app.js',
+  entry: './src/index.js',
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.scss', '.json']
+    extensions: ['.js', '.hbs', '.jsx', '.scss', '.json']
   },
   module: {
     rules: [
@@ -24,6 +26,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                minimize: process.env.NODE_ENV === 'production' ? true : false,
                 sourceMap: true
               }
             },
@@ -83,9 +86,18 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: path.join('./src', 'index.html')
+      template: path.join('./src', 'index.html'),
+      filename: process.env.NODE_ENV === 'production' ? '../index.html' : 'index.html'
     }),
     new StyleLintPlugin(),
-    new ExtractTextPlugin('main.css')
+    new ExtractTextPlugin('main.css'),
+    new SpriteLoaderPlugin()
   ]
 };
+
+if (process.env.NODE_ENV === 'production') {
+  config.devtool = false;
+  config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+
+module.exports = config;
