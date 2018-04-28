@@ -1,5 +1,5 @@
-# Aurora
-Aurora is a clean, modern, design-system focused project boilerplate that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
+# Aurora Project
+Aurora Project is a clean, modern, design-system focused project boilerplate that's both Sass and ES6-ready. It comes packed with tools that help developers work better together, including built-in linting and documentation support.
 
 
 ## Features
@@ -25,6 +25,8 @@ This project features a several goodies that will help improve your development 
 
 **Coming Soon**
 - Test-driven development features
+- Type-checking
+- Project CLI
 
 
 ## Requirements
@@ -35,7 +37,7 @@ This project features a several goodies that will help improve your development 
 To get started, clone this repo to your computer:
 
 ```sh
-git clone https://github.com/carrieforde/Aurora.git /path/to/project
+git clone https://github.com/carrieforde/Aurora-Project.git /path/to/project
 ```
 Once you have cloned the project, move into the project directory and install all the Node dependencies:
 
@@ -107,7 +109,7 @@ Runs Stylelint to enforce rules for style files (.css, .scss, etc.) in the `/src
 A subtask for Stylelint that not only checks against style rules, but automatically fixes fixable issues.
 
 ## Linting
-Aurora includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
+Aurora Project includes Sass and JavaScript linting by default using Stylelint and ES Lint, respectively.
 
 ### Stylelint
 

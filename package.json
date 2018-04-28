@@ -1,8 +1,8 @@
 {
-  "name": "aurora",
-  "version": "0.1.0",
+  "name": "aurora-project",
+  "version": "1.0.0",
   "description": "A clean, modern, design-system focused project boilerplate that's both Sass and ES6 ready.",
-  "main": "app.js",
+  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/carrieforde/Aurora.git"
+    "url": "git+https://github.com/carrieforde/Aurora-Project.git"
   },
   "keywords": [
     "sass",
@@ -73,9 +73,9 @@
   "author": "Carrie Forde",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/carrieforde/Aurora/issues"
+    "url": "https://github.com/carrieforde/Aurora-Project/issues"
   },
-  "homepage": "https://github.com/carrieforde/Aurora#readme",
+  "homepage": "https://github.com/carrieforde/Aurora-Project#readme",
   "dependencies": {
     "npm": "^5.8.0"
   }
