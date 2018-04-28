@@ -48,21 +48,16 @@ npm install
 ## Project Structure
 ```
 aurora/
-├── docs/
-│   ├── jsdoc
-│   ├── sassdoc
-│   ├── styleguide
 ├── src/
-│   ├── assets/
-│   │   ├── icons/
-│   │   ├── images/
-│   │   ├── sass/
-│   │   ├── scripts/
-│   ├── app.js
+│   ├── sass
+│   │   ├── main.scss
+│   │   ├── _config.scss
+│   │   ├── _base.scss
+│   ├── index.js
 │   ├── index.html
 │   ├── main.css
 ├── .babelrc
-├── .eslint.js
+├── .eslint.json
 ├── .gitignore
 ├── .prettierrc
 ├── .stylelintignore
