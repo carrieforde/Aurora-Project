@@ -44,7 +44,7 @@ const config = {
             {
               loader: 'sass-loader',
               options: {
-                includePaths: ['node_modules/sanitize.scss'],
+                includePaths: ['node_modules/aurora-utilities/sass', 'node_modules/sanitize.scss'],
                 sourceMap: true
               }
             }
